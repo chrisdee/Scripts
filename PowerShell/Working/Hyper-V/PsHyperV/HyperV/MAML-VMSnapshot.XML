@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" name="urn:schemas-microsoft-com:office:infopath:PSH-Help:" solutionVersion="1.0.0.15" productVersion="14.0.0" href="file:///C:\Users\Jamesone\Documents\windowsPowershell\PSH-Help.xsn" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<helpItems xmlns="http://msh" schema="maml" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" 
+           xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" 
+           xmlns:maml="http://schemas.microsoft.com/maml/2004/10" 
+           xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2009-07-13T15:24:29"
+           xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" 
+           xml:lang="en-gb">
+
+
+<command:command><command:details><command:name>Get-VMSnapshot</command:name><maml:description><maml:para>Returns SnapShots for one or more VM(s).</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMSnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Returns one or more MSVM_VirtualSystemSettingData WMI object(s) representing 
+snapshots. An individual snapshot can be selected by specifying its name,
+and the newest snapshot can be selected by specifying the -Newest switch.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMSnapshot</maml:name>
+       <command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s)  to query . 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe. 
+If no VM is passed, all VMs on the server are queried.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Name</maml:name>
+									<maml:description>
+										<maml:para>The name of a snapshot to return.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>"%"</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Newest</maml:name><maml:description><maml:para>If Specified only the newest Snapshot is returned.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Root</maml:name><maml:description><maml:para>If specified only the root snapshot is returned.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+									<maml:name>Current</maml:name>
+									<maml:description>
+										<maml:para>If specified only the current snapshot is returned.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter></command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s)  to query . 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe. 
+If no VM is passed, all VMs on the server are queried.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Name</maml:name>
+										<maml:description>
+											<maml:para>The name of a snapshot to return.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>%</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Newest</maml:name><maml:description><maml:para>If Specified only the newest Snapshot is returned.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>false</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Root</maml:name><maml:description><maml:para>if specified only the root snapshot is returned.</maml:para></maml:description><dev:type><maml:name>switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+										<maml:name>Current</maml:name>
+										<maml:description>
+											<maml:para>If specified only the current snapshot is returned.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter></command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para>Virtual Machines can be piped into Get-VMSnapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name>WMI</maml:name></dev:type><maml:description><maml:para>Object(s) representing the snapshot(s) of the VM(s).</maml:para></maml:description></command:returnValue></command:returnValues>
+<command:examples>
+									<command:example>
+										<maml:title>----- Example 1 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Get-VMsnapshot $Core -newest</dev:code>
+										<dev:remarks>
+											<maml:para>Returns the newest snapshot on the VM pointed to by $core.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example>
+								</command:examples><maml:relatedLinks>
+									<maml:navigationLink>
+										<maml:linkText>Get-VMsnapshotTree</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink>
+								<maml:navigationLink>
+										<maml:linkText>New-VMsnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Rename-VMSnapShot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Restore-VMSnapShot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>Get-VMSnapshotTree</command:name><maml:description><maml:para>Displays all the Snapshots of a VM in a tree view.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMSnapshotTree</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>The function displays the snapshots of a Single Virtual machine, 
+arranged in tree format to make it easy to see which snapshots are descended from which others.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMSnapshotTree</maml:name>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine to query.
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+It may be passed via the pipe, but must be a single item.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine to query.
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+It may be passed via the pipe, but must be a single item.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para>Virtual Machines can be piped into Get-VMSnapshotTree.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues>
+<maml:relatedLinks>
+									<maml:navigationLink>
+										<maml:linkText>Get-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink>
+								<maml:navigationLink>
+										<maml:linkText>Select-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>New-VMSnapshot</command:name><maml:description><maml:para>Creates a new snapshot of one more VMs.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>New</command:verb><command:noun>VMSnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Creates a new snapshot of one more VMs.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>New-VMSnapshot</maml:name>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to snapshot.
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Note</maml:name><maml:description><maml:para>Sets an explanatory note on the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>If the wait switch is specified the function will display a progress indicator until the job completes.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to snapshot.
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Note</maml:name><maml:description><maml:para>Sets an explanatory note on the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>If the wait switch is specified the function will display a progress indicator until the job completes.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para>Virtual Machines can be piped into New-VMSnapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues>
+<command:examples>
+									<command:example>
+										<maml:title>----- Example 1 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>new-VMsnapshot $Core </dev:code>
+										<dev:remarks>
+											<maml:para>Takes a snapshot of the VM pointed to by $core.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example>
+								<command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>get-VM "core%" -server "James-2008" | new-VMSnapshot -wait</dev:code>
+										<dev:remarks>
+											<maml:para>Gets the VMs with names beginning "Core" on the server "James-2008" and snapshots them one by one.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks>
+									
+								<maml:navigationLink>
+										<maml:linkText>Get-VMsnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMsnapshotTree</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Rename-VMSnapShot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Restore-VMSnapShot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>CreateVirtualSystemSnapshot Method of the MsVM_VirtualSystemManagementService Class on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136785(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>Remove-VMSnapshot</command:name><maml:description><maml:para>Removes one or more snapshots from a VM.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Remove</command:verb><command:noun>VMSnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Removes one or more snapshots from a VM.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Remove-VMSnapshot</maml:name>
+       <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>Snapshot</maml:name><maml:description><maml:para>An Object representing the snapshot to be removed - may be passed via the pipeline..</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Tree</maml:name><maml:description><maml:para>If specified remove-VMSnapshot will remove snapshots which are children of
+the selected one..</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>If the wait switch is specified the function will display a progress indicator until the job completes.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>Snapshot</maml:name><maml:description><maml:para>An Object representing the snapshot to be removed - may be passed via the pipeline..</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Tree</maml:name><maml:description><maml:para>If specified remove-VMSnapshot will remove snapshots which are children of
+the selected one..</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>If the wait switch is specified the function will display a progress indicator until the job completes.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name>WMI</maml:name></dev:type><maml:description><maml:para>Snapshots can be piped into Remove-VMSnapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues>
+<command:examples>
+									<command:example>
+										<maml:title>----- Example -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMsnapshot $Core | remove-VMsnapshot -tree</dev:code>
+										<dev:remarks>
+											<maml:para>Prompts the user to select a snapshot on the VM pointed to by $core, 
+and removes it, and any child snapshots.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example>
+								</command:examples><maml:relatedLinks>
+									
+								<maml:navigationLink>
+										<maml:linkText>Get-VMsnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>RemoveVirtualSystemSnapshot Method of the MsVM_VirtualSystemManagementService Class on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136962(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>Rename-VMsnapshot</command:name><maml:description><maml:para>Changes the display name of a snapshot.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Rename</command:verb><command:noun>VMsnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Changes the display name of a snapshot.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Path</maml:name>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) whose snapshot(s) should be renamed.
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+Unlike most commands, Rename-VMSnapShot DOES NOT allow VMs to be passed via the pipeline - pipeline input expects snapshot objects.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Snapname</maml:name><maml:description><maml:para>The old name of the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="true" pipelineInput="false"><maml:name>NewName</maml:name><maml:description><maml:para>The new name of the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:syntaxItem><command:syntaxItem><maml:name>Snap</maml:name>
+       
+       <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="true"><maml:name>SnapShot</maml:name><maml:description><maml:para>An Object representing the snapshot to be renamed. 
+Only a single snapshot can be passed as a parameter, but multiple snapshots may be passed via the pipeline.</maml:para></maml:description><dev:type><maml:name>WMI</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="true" pipelineInput="false"><maml:name>NewName</maml:name><maml:description><maml:para>The new name of the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="false"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) whose snapshot(s) should be renamed.
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+Unlike most commands, Rename-VMSnapShot DOES NOT allow VMs to be passed via the pipeline - pipeline input expects snapshot objects.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>SnapName</maml:name><maml:description><maml:para>The old name of the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>NewName</maml:name><maml:description><maml:para>The new name of the snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="true">
+										<maml:name>Snapshot</maml:name>
+										<maml:description>
+											<maml:para>An Object representing the snapshot to be renamed. 
+Only a single snapshot can be passed as a parameter, but multiple snapshots may be passed via the pipeline.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para>SnapShots can be piped into Rename-Snapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues>
+<command:examples>
+									<command:example>
+										<maml:title>----- Example 1 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Rename-VMSnapshot –v $core –s (Select-VMsnapshot $core).elementName 
+–n "default"</dev:code>
+										<dev:remarks>
+											<maml:para>Prompts the user to select one of the snap shots on the VM pointed to by $core and renames it to “default”.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example>
+								<command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMsnapshot $core | Rename-VMSnapshot -newname "default"</dev:code>
+										<dev:remarks>
+											<maml:para>An Improved version of Example 1.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks>
+									<maml:navigationLink>
+										<maml:linkText>Get-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink>
+								<maml:navigationLink>
+										<maml:linkText>New-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Update-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>Restore-VMSnapshot</command:name><maml:description><maml:para>Rolls a VM back (or forward) to a snapshot.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Restore</command:verb><command:noun>VMsnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Rolls a VM back (or forward) to a snapshot.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Restore-VMSnapshot</maml:name>
+       <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="true"><maml:name>SnapShot</maml:name><maml:description><maml:para>An Object representing one or more snapshots to be applied - may be passed via the pipeline.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Restart</maml:name><maml:description><maml:para>Restarts the VM(s) after completion of the restoration(s).</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>If the wait switch is specified the function will display a progress indicator until the restoration completes.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="true"><maml:name>SnapShot</maml:name><maml:description><maml:para>An Object representing one or more snapshots to be applied - may be passed via the pipeline.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Restart</maml:name><maml:description><maml:para>Restarts the VM(s) after completion of the restoration(s).</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>If the wait switch is specified the function will display a progress indicator until the restoration completes.</maml:para></maml:description><dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name>WMI</maml:name></dev:type><maml:description><maml:para>Snapshots can be piped into Restore-VMsnapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues>
+<command:examples>
+									<command:example>
+										<maml:title>----- Example 1 ----- </maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMsnapshot $Core | Restore-VMsnapshot </dev:code>
+										<dev:remarks>
+											<maml:para>Lets the user select a snapshot on the VM pointed to by $core and applies it.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example>
+								<command:example>
+										<maml:title>----- Example 2 ----- </maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Get-VMsnapshot -name "Monday" | Restore-VMsnapshot -force</dev:code>
+										<dev:remarks>
+											<maml:para>Gets snapshots named "Monday" made on any VM on the local server and restores them without prompting.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks>
+									<maml:navigationLink>
+										<maml:linkText>Get-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink>
+								<maml:navigationLink>
+										<maml:linkText>New-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>ApplyVirtualSystemSnapshot Method of the MsVM_VirtualSystemManagementService Class on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136767(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>Select-VMSnapshot</command:name><maml:description><maml:para>Allows the user to select a snapshot for a VM.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Select</command:verb><command:noun>VMSnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>If there is only a single snapshot it is returned, if there is more than one
+a tree view of the snapshots for the VM is displayed for the user to 
+make a selection.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Select-VMSnapshot</maml:name>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine to query 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches a single VM).
+ It may be passed via the pipe. Only a single VM may be queried.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine to query 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches a single VM).
+It may be passed via the pipe. Only a single VM may be queried.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para>The desired virtual machine can be piped into select-VMSnapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name>WMI</maml:name></dev:type><maml:description><maml:para>An MSVM_VirtualSystemSettingData object representing a snapshot.</maml:para></maml:description></command:returnValue></command:returnValues>
+<command:examples>
+									<command:example>
+										<maml:title>----- Example 1  ---- </maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMsnapshot $Core</dev:code>
+										<dev:remarks>
+											<maml:para>Gets the Snapshots of the machine pointed to by $core and if there are multiple snap shots prompts the user to select one from a tree.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example>
+								</command:examples><maml:relatedLinks>
+									
+								<maml:navigationLink>
+										<maml:linkText>Get-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMSnapshotTree</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+<command:command><command:details><command:name>Update-VMSnapshot</command:name><maml:description><maml:para>Replaces an existing snapshot with a new one.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Update</command:verb><command:noun>VMSnapshot</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>This function is a wrapper for New-Snapshot, remove-Snapshot, and 
+rename-snapshot. 
+If no snapshot name is specified the function gets the most recent snapshot. It renames that snapshot to “Delete-me”. It creates a new snapshot, using the note if one is specified, and renames the new snapshot to the given name. Finally it removes the old version of the snapshot..</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Update-VMSnapshot</maml:name>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) on which the snapshot should be updated.
+ This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>SnapName</maml:name><maml:description><maml:para>The name of the snapshot to update. 
+If no name is provided the newest snapshot is used (and its name re-used).</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Note</maml:name><maml:description><maml:para>A note to add to the newly created snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para></maml:description><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out. Update-VMSnapShot calls other commands which have a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:syntaxItem></command:syntax>
+   <command:parameters>
+       <command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) on which the snapshot should be updated.
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.cd.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>SnapName</maml:name><maml:description><maml:para>The name of the snapshot to update. 
+If no name is provided the newest snapshot is used (and its name re-used).</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Note</maml:name><maml:description><maml:para>A note to add to the newly created snapshot.</maml:para></maml:description><dev:type><maml:name>String</maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+       
+       <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards can not be used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter>
+        <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out. Update-VMSnapShot calls other commands which have a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter>
+   </command:parameters>
+   <command:inputTypes><command:inputType><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para>Virtual Machines can be piped into Update-VMSnapshot.</maml:para></maml:description></command:inputType></command:inputTypes>
+   <command:returnValues><command:returnValue><dev:type><maml:name></maml:name></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues>
+<maml:relatedLinks>
+									<maml:navigationLink>
+										<maml:linkText>Get-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink>
+								<maml:navigationLink>
+										<maml:linkText>New-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Rename-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSnapshot</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command>
+</helpItems>

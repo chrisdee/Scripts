@@ -1,0 +1,2191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" name="urn:schemas-microsoft-com:office:infopath:PSH-Help:" solutionVersion="1.0.0.15" productVersion="14.0.0" href="file:///C:\Users\Jamesone\Documents\windowsPowershell\PSH-Help.xsn" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<helpItems xmlns="http://msh" schema="maml" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" 
+           xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" 
+           xmlns:maml="http://schemas.microsoft.com/maml/2004/10" 
+           xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2009-07-13T15:24:29"
+           xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" 
+           xml:lang="en-gb">
+
+  <command:command>
+    <command:details>
+      <command:name>Select-Enumtype</command:name>
+      <maml:description>
+        <maml:para>Returns a value selected by the user from an Enumeration type.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft Corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Select</command:verb>
+      <command:noun>EnumType</command:noun>
+      <dev:version>1.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>When an enum type has been created to allow easy mapping of names to values,
+this function prompts the user to select one of the names, and returns the
+corresponding value.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Select-EnumType</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+          <maml:name>eType</maml:name>
+          <maml:description>
+            <maml:para>The Enumeration type to use to build the selection list.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">system.runtimeType</command:parameterValue>
+          <dev:type>
+            <maml:name>system.runtimeType</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+          <maml:name>Default</maml:name>
+          <maml:description>
+            <maml:para>The Value returned if nothing is selected from the list 
+(if not specified the function will return null).</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+          <dev:type>
+            <maml:name>Int</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+        <maml:name>etype </maml:name>
+        <maml:description>
+          <maml:para>The Enumeration type to used to build the selection list.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">system.runtimeType</command:parameterValue>
+        <dev:type>
+          <maml:name>system.runtimeType</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+        <maml:name>Default</maml:name>
+        <maml:description>
+          <maml:para>The Value returned if nothing is selected from the list 
+(if not specified the function will return null).</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>Value of the selected item.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>---- Example 1 ---- </maml:title>
+        <maml:introduction>
+          <maml:para>
+.</maml:para>
+        </maml:introduction>
+        <dev:code>$inboundAction = (Select-EnumType fwaction)</dev:code>
+        <dev:remarks>
+          <maml:para>The user is offered choices "Allow" = 1 or "Block" = 0 , 
+the two possible options in the fwAction (firewall action) enum, 
+and the variable is set to 1 or 0, the associated values based on that choice.</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText>
+            </command:commandText>
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks/>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Select-List</command:name>
+      <maml:description>
+        <maml:para>Returns an object selected by the user from a table of numbered rows.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>
+.</maml:para>
+      </maml:copyright>
+      <command:verb>Select</command:verb>
+      <command:noun>List</command:noun>
+      <dev:version>
+      </dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>Takes a collection of objects and the list of properties to be displayed.
+This information is used to show a table with numbered rows.
+The user is prompted to make either a single or multiple choice, by row
+numbers and the selected objects are returned.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Select-List</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>An array of objects which provide the data for the selection list.
+The data returned comes from this parameter as well. 
+If a single item is provided, it is returned without showing the list.
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="True" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+          <maml:name>Property</maml:name>
+          <maml:description>
+            <maml:para>One or more property names used to format the selection list.
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="True" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>Multiple</maml:name>
+          <maml:description>
+            <maml:para>Specifies that multiple items can be selected.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">switch</command:parameterValue>
+          <dev:type>
+            <maml:name>switch</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>An array of objects which provide the data for the selection list.
+The data returned comes from this parameter as well. 
+If a single item is provided, it is returned without showing the list.</maml:para>
+        </maml:description>
+        <command:parameterValue required="True" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+        <maml:name>Property</maml:name>
+        <maml:description>
+          <maml:para>One or more property names used to format the selection list.</maml:para>
+        </maml:description>
+        <command:parameterValue required="True" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="true">
+        <maml:name>Multiple</maml:name>
+        <maml:description>
+          <maml:para>Specifies that multiple items can be selected.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">switch</command:parameterValue>
+        <dev:type>
+          <maml:name>switch</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples/>
+    <maml:relatedLinks/>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Select-Item</command:name>
+      <maml:description>
+        <maml:para>Returns a zero-based integer indicating the user's selection from a list.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Select</command:verb>
+      <command:noun>Item</command:noun>
+      <dev:version>
+      </dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>A list of choices is displayed one after the other, and the users selection
+is returned as a zero-based integer. 
+Can display a caption followed by a
+message before the choices.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>p1</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+          <maml:name>TextChoices</maml:name>
+          <maml:description>
+            <maml:para>An array of strings, each one is possible choice. 
+The hot key in each choice must be prefixed with an &amp; sign.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">string[]</command:parameterValue>
+          <dev:type>
+            <maml:name>string[]</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+          <maml:name>Caption</maml:name>
+          <maml:description>
+            <maml:para>A caption to appear above the choices.
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">string</command:parameterValue>
+          <dev:type>
+            <maml:name>string</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Please make a selection"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>Message</maml:name>
+          <maml:description>
+            <maml:para>A Message to appear between caption and the choices
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">string</command:parameterValue>
+          <dev:type>
+            <maml:name>string</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Choices are presented below"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+          <maml:name>Default</maml:name>
+          <maml:description>
+            <maml:para>The item to be selected by default
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+          <dev:type>
+            <maml:name>Int</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>p2</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+          <maml:name>hashChoices</maml:name>
+          <maml:description>
+            <maml:para>A hash table where each item is a possible choice. 
+The name part is the text to display as the choice label, 
+and the Value part is the Help text.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">HashTable</command:parameterValue>
+          <dev:type>
+            <maml:name>HashTable</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+          <maml:name>Caption</maml:name>
+          <maml:description>
+            <maml:para>A caption to appear above the choices.
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">string</command:parameterValue>
+          <dev:type>
+            <maml:name>string</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Please make a selection"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>Message</maml:name>
+          <maml:description>
+            <maml:para>A Message to appear between caption and the choices
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">string</command:parameterValue>
+          <dev:type>
+            <maml:name>string</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Choices are presented below"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+          <maml:name>Default</maml:name>
+          <maml:description>
+            <maml:para>The item to be selected by default
+.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+          <dev:type>
+            <maml:name>Int</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+        <maml:name>ChoiceList</maml:name>
+        <maml:description>
+          <maml:para>An array of strings, each one is possible choice. 
+The hot key in each choice must be prefixed with an &amp; sign.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">string[]</command:parameterValue>
+        <dev:type>
+          <maml:name>string[]</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+        <maml:name>hashChoices</maml:name>
+        <maml:description>
+          <maml:para>A hash table where each item is a possible choice. The name part is the text to display as the choice label, and the Value part is the Help text.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">HashTable</command:parameterValue>
+        <dev:type>
+          <maml:name>HashTable</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+        <maml:name>Caption</maml:name>
+        <maml:description>
+          <maml:para>A caption to appear above the choices
+.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">string</command:parameterValue>
+        <dev:type>
+          <maml:name>string</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Please make a selection"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+        <maml:name>Message</maml:name>
+        <maml:description>
+          <maml:para>A Message to appear between caption and the choices
+.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">string</command:parameterValue>
+        <dev:type>
+          <maml:name>string</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Choices are presented below"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+        <maml:name>Default</maml:name>
+        <maml:description>
+          <maml:para>The item to be selected by default
+.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>An integer indicating the selection.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>--------------- Example 1 ------------------------</maml:title>
+        <maml:introduction>
+          <maml:para>
+.</maml:para>
+        </maml:introduction>
+        <dev:code>select-item -Caption "Configuring RemoteDesktop" -Message "Do you want to: " -textChoices " &amp;amp;Disable Remote Desktop","&amp;amp;Enable Remote Desktop","&amp;amp;Cancel"  -default 1 </dev:code>
+        <dev:remarks>
+          <maml:para>will display the following.</maml:para>
+          <maml:para>Configuring RemoteDesktop
+Do you want to: 
+[D] Disable Remote Desktop  [E] Enable Remote Desktop  [C] Cancel  [?] Help (default is "E"):.</maml:para>
+          <maml:para>The function accepts D, E ,or C as input and returns 0 for Disable, 1 for Enable and 2 for Cancel.</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText>
+            </command:commandText>
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+      <command:example>
+        <maml:title>--------------- Example 2 ------------------------</maml:title>
+        <maml:introduction>
+          <maml:para>
+.</maml:para>
+        </maml:introduction>
+        <dev:code>Select-item @{"&amp;Tea"="A drink made from leaves";"&amp;Coffee"="A drink made from beans"}</dev:code>
+        <dev:remarks>
+          <maml:para>will display the following.</maml:para>
+          <maml:para>    Please make a selection
+    Choices are presented below
+   [T] Tea  [C] Coffee  [?] Help (default is "T"):.</maml:para>
+          <maml:para>Pressing ? will produce help as follows.</maml:para>
+          <maml:para>T - A drink made from leaves
+C - A drink made from beans.</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText>
+            </command:commandText>
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>PromptForChoice Method of PSHostUserInterface on MSDN</maml:linkText>
+        <maml:uri>http://msdn.microsoft.com/en-us/library/system.management.automation.host.pshostuserinterface.promptforchoice(VS.85).aspx</maml:uri>
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Out-Tree</command:name>
+      <maml:description>
+        <maml:para>Outputs objects in a tree format.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft corporation 2007-9.</maml:para>
+      </maml:copyright>
+      <command:verb>Out</command:verb>
+      <command:noun>Tree</command:noun>
+      <dev:version>1.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>The function takes a collection of objects which must have: 
+a property to display (label), 
+a property identify the position in the tree (path)
+ and a property which identifies a node's parent (parent).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Out-Tree</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>The collection of items to output in the tree. May be passed via the pipe
+For backwards compatibility has an alias of "Items".</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+          <maml:name>StartAt</maml:name>
+          <maml:description>
+            <maml:para>The first item in the branch of the tree to output.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The name of the property name which identifies a location in the tree.
+It does not need to be a fully qualified path, but must be unique.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Path"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+          <maml:name>Parent</maml:name>
+          <maml:description>
+            <maml:para>The name of the property which holds the path of a node's parent.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Parent"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+          <maml:name>Label</maml:name>
+          <maml:description>
+            <maml:para>The name of the property which holds the text to display.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Label"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+          <maml:name>Indent</maml:name>
+          <maml:description>
+            <maml:para>The function is called recursively and this parameter specifies how far each
+branch of the tree is indented.
+It should not be passed from the command line.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+          <dev:type>
+            <maml:name>Int</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>The collection of items to output in the tree. May be passed via the pipe
+For backwards compatibility has an alias of "Items".</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+        <maml:name>StartAt</maml:name>
+        <maml:description>
+          <maml:para>The first item in the branch of the tree to output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>The name of the property name which identifies a location in the tree.
+It does not need to be a fully qualified path, but must be unique.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Path"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+        <maml:name>Parent</maml:name>
+        <maml:description>
+          <maml:para>The value of the path property which identifies a node's parent.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Parent"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+        <maml:name>Label</maml:name>
+        <maml:description>
+          <maml:para>The name of the property which holds the text to display.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Label"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+        <maml:name>Indent</maml:name>
+        <maml:description>
+          <maml:para>The function is called recursively and this parameter specifies how far each
+branch of the tree is indented.
+It should not be passed from the command line.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>----- Example 1 -----</maml:title>
+        <maml:introduction>
+          <maml:para>
+.</maml:para>
+        </maml:introduction>
+        <dev:code>dir -Recurse | Where-Object {$_.mode -like "D*"} | 
+   out-tree -start (get-item $pwd) -path pspath -parent psparentPath -label name</dev:code>
+        <dev:remarks>
+          <maml:para>Outputs a tree of subfolders of the current folder; 
+the starting item is the current folder,
+for each item in thee tree its path is stored in the PsPath property, and
+its parent is stored in the PsParentPath propery. 
+The name property is output in the tree view.</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText>
+            </command:commandText>
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Select-Tree</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Select-Tree</command:name>
+      <maml:description>
+        <maml:para>Allows the user to select from objects in a tree format.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft corporation 2007-9.</maml:para>
+      </maml:copyright>
+      <command:verb>Select</command:verb>
+      <command:noun>Tree</command:noun>
+      <dev:version>1.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>The function takes a collection of objects which must have:
+ a property to display (label), 
+a property identify the position in the tree (path) and
+a property which identifies a node's parent (parent). 
+displays them tree format and prompts the user to choose one (or more than one if -Multiple is specified).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Select-Tree</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>The collection of items to output in the tree. May be passed via the pipe
+For backwards compatibility has an alias of "Items".</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+          <maml:name>StartAt</maml:name>
+          <maml:description>
+            <maml:para>The first item in the branch of the tree to output.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>Path</maml:name>
+          <maml:description>
+            <maml:para>The name of the property name which identifies a location in the tree.
+It does not need to be a fully qualified path, but must be unique.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Path"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+          <maml:name>Parent</maml:name>
+          <maml:description>
+            <maml:para>The name of the property which holds the path of a node's parent.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Parent"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+          <maml:name>Label</maml:name>
+          <maml:description>
+            <maml:para>The name of the property which holds the text to display.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Label"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+          <maml:name>Indent</maml:name>
+          <maml:description>
+            <maml:para>The function is called recursively and this parameter specifies how far each
+branch of the tree is indented. 
+Should not be passed from the command line.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+          <dev:type>
+            <maml:name>Int</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+          <maml:name>Multiple</maml:name>
+          <maml:description>
+            <maml:para>Determines whether a single or multiple selection is to made from the tree.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+          <dev:type>
+            <maml:name>Switch</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>The collection of items to output in the tree. May be passed via the pipe
+For backwards compatibility has an alias of "Items".</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+        <maml:name>StartAt</maml:name>
+        <maml:description>
+          <maml:para>The first item in the branch of the tree to output.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+        <maml:name>Path</maml:name>
+        <maml:description>
+          <maml:para>The name of the property name which identifies a location in the tree.
+It does not need to be a fully qualified path, but must be unique.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Path"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+        <maml:name>Parent</maml:name>
+        <maml:description>
+          <maml:para>The value of the path property which identifies a node's parent.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Parent"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+        <maml:name>Label</maml:name>
+        <maml:description>
+          <maml:para>The name of the property which holds the text to display.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Label"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+        <maml:name>Indent</maml:name>
+        <maml:description>
+          <maml:para>The function is called recursively and this parameter specifies how far each
+branch of the tree is indented. 
+Should not be passed from the command line.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+        <maml:name>Multiple</maml:name>
+        <maml:description>
+          <maml:para>Determines whether a single or multiple selection is to made from the tree.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+        <dev:type>
+          <maml:name>Switch</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples/>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Out-Tree</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Test-Admin</command:name>
+      <maml:description>
+        <maml:para>Checks to see if the current session has administrator privileges.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft Corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Test</command:verb>
+      <command:noun>Admin</command:noun>
+      <dev:version>1.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>Some tasks require administrator privileges, and on Windows Vista/Server 2008 
+and later this may require the user to choose "Run as administrator" when
+starting PowerShell
+The command returns a Boolean indicating the elevated status - true = elevated, false = not elevated.</maml:para>
+    </maml:description>
+    <command:syntax/>
+    <command:parameters/>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>$true if the session was started as administrator.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>----- Example 1 -----</maml:title>
+        <maml:introduction>
+          <maml:para>
+.</maml:para>
+        </maml:introduction>
+        <dev:code>Test-Admin</dev:code>
+        <dev:remarks>
+          <maml:para>Returns true if the session was started as administrator, false otherwise.</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText>
+            </command:commandText>
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks/>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Convert-DiskIDtoDrive</command:name>
+      <maml:description>
+        <maml:para>Converts a logical disk index to a drive letter.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft Corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Convert</command:verb>
+      <command:noun>DiskIdToDrive</command:noun>
+      <dev:version>1.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>Converts a logical disk index to a drive letter.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>P1</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="true">
+          <maml:name>DiskIndex</maml:name>
+          <maml:description>
+            <maml:para>An integer representing the index of the logical disk.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+          <dev:type>
+            <maml:name>Int</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>P2</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="true">
+          <maml:name>InputObject</maml:name>
+          <maml:description>
+            <maml:para>A WMI object representing a physical disk.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+          <dev:type>
+            <maml:name>System.Management.ManagementObject</maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="true">
+        <maml:name>DiskIndex</maml:name>
+        <maml:description>
+          <maml:para>An integer representing the index of the logical disk.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">Int</command:parameterValue>
+        <dev:type>
+          <maml:name>Int</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="true">
+        <maml:name>InputObject</maml:name>
+        <maml:description>
+          <maml:para>A WMI object representing a physical disk.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+        <dev:type>
+          <maml:name>System.Management.ManagementObject</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-----  Example 1  -----</maml:title>
+        <maml:introduction>
+          <maml:para>
+.</maml:para>
+        </maml:introduction>
+        <dev:code>PS &gt; Convert-DiskIDToDrive 0</dev:code>
+        <dev:remarks>
+          <maml:para>Returns the drive letters of the partitions on the specified disk. For Example C:, D:.</maml:para>
+        </dev:remarks>
+        <command:commandLines>
+          <command:commandLine>
+            <command:commandText>
+            </command:commandText>
+          </command:commandLine>
+        </command:commandLines>
+      </command:example>
+    </command:examples>
+    <maml:relatedLinks/>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Get-FirstAvailableDriveLetter</command:name>
+      <maml:description>
+        <maml:para>Returns a CHAR indicating the first available drive letter.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft Corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Get</command:verb>
+      <command:noun>FirstAvailableDriveLetter</command:noun>
+      <dev:version>1.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>Returns a CHAR indicating the first available drive letter.</maml:para>
+    </maml:description>
+    <command:syntax/>
+    <command:parameters/>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>CHAR</maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>First available drive letter.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples/>
+    <maml:relatedLinks/>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Test-WMIJob</command:name>
+      <maml:description>
+        <maml:para>Checks the status of background WMI jobs.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft Corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Test</command:verb>
+      <command:noun>WMIJob</command:noun>
+      <dev:version>2.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>Some WMI functions create a background job, it may be necessary to wait for
+a job to complete, or simply to check its current state.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-WMIJob</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+          <maml:name>Job</maml:name>
+          <maml:description>
+            <maml:para>A WMI object representing a job. If a string is passed containing a WMI path
+it is converted to the WMI object automatically.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue> WMI</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+          <maml:name>StatusOnly</maml:name>
+          <maml:description>
+            <maml:para>If not specified the Job WMI object is returned. 
+If it is specified only the JobState Property is returned, saving the caller the step of getting the property.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>Wait</maml:name>
+          <maml:description>
+            <maml:para>If not specified the job will only be examined once.
+If specified it will be examined every 250 milliseconds as long as its state
+is "Running".</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+          <maml:name>Description</maml:name>
+          <maml:description>
+            <maml:para>The Description to be displayed while waiting for the job to complete.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>"Job"</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+        <maml:name>Job</maml:name>
+        <maml:description>
+          <maml:para>A WMI object representing a job. If a string is passed containing a WMI path
+it is converted to the WMI object automatically.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+        <maml:name>StatusOnly</maml:name>
+        <maml:description>
+          <maml:para>If not specified the Job WMI object is returned. If it is specified only the
+JobState Property is returned, saving the caller the step of getting the property.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+        <maml:name>wait</maml:name>
+        <maml:description>
+          <maml:para>If not specified the job will only be examined once.
+If specified it will be examined every 250 milliseconds as long as its state
+is "Running".</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+        <maml:name>Description</maml:name>
+        <maml:description>
+          <maml:para>The Description to be displayed while waiting for the job to complete.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>"Job"</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+    </maml:alertSet>
+    <command:examples>
+    </command:examples>
+    <maml:relatedLinks>
+    </maml:relatedLinks>
+  </command:command>
+  <command:command>
+    <command:details>
+      <command:name>Test-WMIResult</command:name>
+      <maml:description>
+        <maml:para>Checks the result returned by calling a WMI method.</maml:para>
+      </maml:description>
+      <maml:copyright>
+        <maml:para>(c) Microsoft Corporation 2009.</maml:para>
+      </maml:copyright>
+      <command:verb>Test</command:verb>
+      <command:noun>WMIResult</command:noun>
+      <dev:version>2.00</dev:version>
+    </command:details>
+    <maml:description>
+      <maml:para>When calling a WMI method the result will often by an object containing a 
+return value, 
+which indicates immediate success, the creation of a task  to perform the job, or an error.
+Test-WMI result looks at this code and if necessary uses Test-WMIJob to
+see what the outcome of the job was.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-WMIResult</maml:name>
+        <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+          <maml:name>Result</maml:name>
+          <maml:description>
+            <maml:para>The WMI Object returned by calling a method of another WMI object.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+          <maml:name>JobWaitText</maml:name>
+          <maml:description>
+            <maml:para>The text to be displayed on a progress indicator while waiting for the job to
+complete
+(if -wait is specified and a background job exists).</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue></dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+          <maml:name>SuccessText</maml:name>
+          <maml:description>
+            <maml:para>The text written to Verbose: if the method was successful.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+          <maml:name>FailText</maml:name>
+          <maml:description>
+            <maml:para>The Text to be included with the error and written to error if the method fails.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>
+          </dev:defaultValue>
+        </command:parameter>
+        <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+          <maml:name>wait</maml:name>
+          <maml:description>
+            <maml:para>If specified will wait for a background job to complete. 
+If not specified a message will be written to Warning indicating 
+the job is still running if it has not completed.</maml:para>
+          </maml:description>
+          <command:parameterValue required="false" variableLength="">
+          </command:parameterValue>
+          <dev:type>
+            <maml:name>
+          </maml:name>
+            <maml:uri>
+            </maml:uri>
+            <maml:description>
+              <maml:para>
+.</maml:para>
+            </maml:description>
+          </dev:type>
+          <dev:defaultValue>false</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+        <maml:name>Result</maml:name>
+        <maml:description>
+          <maml:para>The WMI Object returned by calling a method of another WMI object.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+        <maml:name>JobWaitText</maml:name>
+        <maml:description>
+          <maml:para>The text to be displayed on a progress indicator while waiting for the job to
+complete (if -wait is specified and a background job exists).</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+        <maml:name>SuccessText</maml:name>
+        <maml:description>
+          <maml:para>The text written to Verbose: if the method was successful.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+        <maml:name>FailText</maml:name>
+        <maml:description>
+          <maml:para>The Text to be included with the error and written to error if the method fails.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>
+        </dev:defaultValue>
+      </command:parameter>
+      <command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+        <maml:name>Wait</maml:name>
+        <maml:description>
+          <maml:para>If specified will wait for a background job to complete. 
+If not specified a message will be written to Warning indicating 
+the job is still running if it has not completed.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="">
+        </command:parameterValue>
+        <dev:type>
+          <maml:name>
+        </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>
+          </maml:name>
+          <maml:uri>
+          </maml:uri>
+          <maml:description>
+            <maml:para>
+.</maml:para>
+          </maml:description>
+        </dev:type>
+        <maml:description>
+          <maml:para>
+.</maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:title>
+      </maml:title>
+      <maml:alert>
+        <maml:para>This command is expected to be used by other commands, not from the command line.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+    </command:examples>
+    <maml:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Test-WmiJob</maml:linkText>
+        <maml:uri>
+        </maml:uri>
+      </maml:navigationLink>
+    </maml:relatedLinks>
+  </command:command>
+</helpItems>

@@ -1,0 +1,1382 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" name="urn:schemas-microsoft-com:office:infopath:PSH-Help:" solutionVersion="1.0.0.15" productVersion="14.0.0" href="file:///C:\Users\Jamesone\Documents\windowsPowershell\PSH-Help.xsn" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<helpItems xmlns="http://msh" schema="maml" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" 
+           xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" 
+           xmlns:maml="http://schemas.microsoft.com/maml/2004/10" 
+           xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2009-07-13T15:24:29"
+           xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" 
+           xml:lang="en-gb">
+
+
+<command:command><command:details><command:name>Get-VMHost</command:name><maml:description><maml:para>Lists Hyper-V servers registered with Active Directory.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMhost</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Queries Active Directory for Hyper-v connection points - in other words,
+servers registered with the domain running Hyper-V.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-Host</maml:name><command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>Domain</maml:name><maml:description><maml:para>Specifies the Active directory container to search from: defaults to the root domain.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>RootDomainNamingContext</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false"><maml:name>Domain</maml:name><maml:description><maml:para>Specifies the Active directory container to search from: defaults to the root domain.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>RootDomainNamingContext</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>A domain, written in X.500 format.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The name(s) of the hosts in AD.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 ---- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>get-VMhost "DC=ite,DC=contoso,DC=com" | foreach-object {$_; Get-VMsummary -server $_}</dev:code><dev:remarks><maml:para>Queries the domain ITE.Contoso.com for Hyper-V servers,
+ prints the name of each and dumps the state of its VMs.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks/></command:command><command:command>
+									<command:details>
+										<command:name>Set-VMHost</command:name>
+										<maml:description>
+											<maml:para>Configures the settings for the Hyper-V service itself.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Set</command:verb>
+										<command:noun>VM Host</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Configures the settings for the Hyper-V service, including contact details,
+MAC Address range, default VHD location, and default data files location.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Set-VMHost</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+												<maml:name>ExtDataPath</maml:name>
+												<maml:description>
+													<maml:para>If passed, changes the external data path used for Snapshots etc.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para>.</maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>VHDPath</maml:name>
+									<maml:description>
+										<maml:para>If passed, changes the default location for Virtual Hard disk files.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+									<maml:name>MinMAC</maml:name>
+									<maml:description>
+										<maml:para>Must be exactly 12 Hexadecimal digits. 
+If set, changes the minimum MAC address for dynamically assigned addresses.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+									<maml:name>MaxMAC</maml:name>
+									<maml:description>
+										<maml:para>Must be exactly 12 Hexadecimal digits. 
+If set, changes the maximum MAC address for dynamically assigned addresses.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+									<maml:name>OwnerContact</maml:name>
+									<maml:description>
+										<maml:para>Contact information for a person responsible for the server.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+									<maml:name>OwnerName</maml:name>
+									<maml:description>
+										<maml:para>Name of a person responsible for the server.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+									<maml:name>Server</maml:name>
+									<maml:description>
+										<maml:para>Specifies a one or more Hyper-V server(s) to be updated.
+By default "." , the local computer, is used..</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>"."</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="8" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+											<maml:name>ExtDataPath</maml:name>
+											<maml:description>
+												<maml:para>If passed, changes the external data path used for Snapshots etc.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>VHDPath</maml:name>
+										<maml:description>
+											<maml:para>If passed, changes the default location for Virtual Hard disk files.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>String</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>MinMAC</maml:name>
+										<maml:description>
+											<maml:para>Must be exactly 12 Hexadecimal digits. 
+If set, changes the minimum MAC address for dynamically assigned addresses.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>String</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>MaxMac</maml:name>
+										<maml:description>
+											<maml:para>Must be exactly 12 Hexadecimal digits. 
+If set, changes the maximum MAC address for dynamically assigned addresses.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>String</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+										<maml:name>OwnerContact</maml:name>
+										<maml:description>
+											<maml:para>Contact information for a person responsible for the server.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>String</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+										<maml:name>OwnerName</maml:name>
+										<maml:description>
+											<maml:para>Name of a person responsible for the server.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>String</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies a single Hyper-V server to be updated.
+By default "." , the local computer is used..</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -Whatif, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="8" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>Get-VMHost</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>ModifyServiceSettings Method of the MsVM_VirtualSystemManagementService Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc160709(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command><command:details><command:name>Get-VM</command:name><maml:description><maml:para>Returns WMI objects representing Hyper-V Virtual Machines.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Gets Virtual Machine objects on one or more Hyper-V servers; 
+VMs may be selected based on their name or state (running, stopped etc.).</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>Name</maml:name><maml:description><maml:para>Specifies the name (or name pattern) to look for.
+WMI wild cards use % , but * will be converted to % to allow familiar style
+to be used. 
+Can be used with an Alias of VMName (which may be shortened to VM).</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>%</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server </maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Suspended</maml:name><maml:description><maml:para>Only Return Virtual Machines that are in the SUSPENDED state.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Running</maml:name><maml:description><maml:para>Only return Virtual Machines that are in the RUNNING state.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Stopped</maml:name><maml:description><maml:para>Only return Virtual Machines that are in the STOPPED state.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>Name</maml:name><maml:description><maml:para>Specifies the name(s) or name pattern(s) to look for.
+WMI wild cards use % , but * will be converted to % to allow familiar style to be used.  
+Can be used with an Alias of VMName (which may be shortened to VM).</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>%</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Suspended </maml:name><maml:description><maml:para>Only return Virtual Machines that are in the SUSPENDED state.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Running</maml:name><maml:description><maml:para>Only return Virtual Machines that are in the RUNNING state.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Stopped</maml:name><maml:description><maml:para>Only return Virtual Machines that are in the STOPPED state.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Name of VM(s) to return.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>Object</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Zero or more objects representing the VMs.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM</dev:code><dev:remarks><maml:para>Returns WMI MSVM_ComputerSystem objects for all Virtual Machines on the local server
+ (Note, the parent partition is filtered out).</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -Name "Windows 2008 Ent Full TS"</dev:code><dev:remarks><maml:para>Returns a single WMI MSVM_ComputerSystem object for the VM named "Server 2008 ENT Full TS".</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 3 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -Name "%2008%" -Server "JAMES-2008"</dev:code><dev:remarks><maml:para>Returns WMI MSVM_ComputerSystem objects for the VMs with "2008" 
+in their names from the server named JAMES-2008.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>New-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Set-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_ComputerSystem Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136822(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Select-VM</command:name><maml:description><maml:para>Allows the user to select a Virtual Machine from a list.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Select</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>If only one VM is available then it is returned;
+ otherwise a list of VMs is displayed and the user is prompted to make a selection.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Select-VM</maml:name><command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which Virtual Machines reside.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Multiple</maml:name><maml:description><maml:para>If specified allows multiple VMs to be selected from the list.
+If omitted only a single VM  may be selected.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which Virtual Machines reside.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Multiple</maml:name><maml:description><maml:para>If specified allows multiple VMs to be selected from the list.
+If omitted only a single VM  may be selected.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The WMi object(s) Representing the selected VM(s).</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Select-VM -multiple</dev:code><dev:remarks><maml:para>Lets the user select one or more VMs 
+from a list of those on the local machine.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Select-VM -Server James-2008,Jackie-2008</dev:code><dev:remarks><maml:para> Lets the user select a single VM from a list of those 
+on the cluster nodes named "James-2008" and "Jackie-2008".</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks/></command:command><command:command><command:details><command:name>Set-VM</command:name><maml:description><maml:para>Sets name, notes, boot order, start-up, shutdown and recovery options.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Set</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Sets name, notes, boot order, start-up, shutdown and recovery options for one or more VM(s).</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Set-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to configure. 
+This may be a WMI object representing a VM,
+ a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Name</maml:name><maml:description><maml:para>The new display name for the VM.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>BootOrder</maml:name><maml:description><maml:para>An array of enums representing boot devices. 
+If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">BootMedia[]</command:parameterValue><dev:type><maml:name>BootMedia[]</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Notes</maml:name><maml:description><maml:para>The new contents of the VM Notes field.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>AutoRecovery</maml:name><maml:description><maml:para>An enum representing a recovery action. 
+If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">RecoveryAction</command:parameterValue><dev:type><maml:name>RecoveryAction</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>AutoShutdown</maml:name><maml:description><maml:para>An enum representing a Shutdown action. 
+If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">ShutdownAction</command:parameterValue><dev:type><maml:name>ShutdownAction</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false"><maml:name>AutoStartUP</maml:name><maml:description><maml:para>An enum representing a start-up action. 
+If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">StartupAction</command:parameterValue><dev:type><maml:name>StartupAction</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false"><maml:name>AutoDelay</maml:name><maml:description><maml:para>The number of seconds to delay an automated startup 
+(to allow other VMs to boot first).</maml:para></maml:description><command:parameterValue required="false" variableLength="">Int</command:parameterValue><dev:type><maml:name>Int</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="8" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="9" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -Whatif, -Confirm, -Verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="10" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to configure. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Name</maml:name><maml:description><maml:para>The new display name for the VM.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>BootOrder</maml:name><maml:description><maml:para>An array of enums representing boot devices. If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">BootMedia[]</command:parameterValue><dev:type><maml:name>BootMedia[]</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Notes</maml:name><maml:description><maml:para>The new contents of the VM Notes field.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>AutoRecovery</maml:name><maml:description><maml:para>An enum representing a recovery action. If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">RecoveryAction</command:parameterValue><dev:type><maml:name>RecoveryAction</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>AutoShutdown</maml:name><maml:description><maml:para>An enum representing a shutdown action. If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">ShtudownAction</command:parameterValue><dev:type><maml:name>ShtudownAction</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false"><maml:name>AutoStartup</maml:name><maml:description><maml:para>An enum representing a Start-up action. If valid integers or strings are passed they will be converted to enums.</maml:para></maml:description><command:parameterValue required="false" variableLength="">StartupAction</command:parameterValue><dev:type><maml:name>StartupAction</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false"><maml:name>AutoDelay</maml:name><maml:description><maml:para>The number of seconds to delay an automated start-up (to allow other VMs to boot first).</maml:para></maml:description><command:parameterValue required="false" variableLength="">int</command:parameterValue><dev:type><maml:name>int</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="8" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="9" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="19" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Set-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Set-VM $VM -bootorder CD,IDE,net,Floppy</dev:code><dev:remarks><maml:para>Sets the boot order for the machine whose config is $VM to
+ CD, IDE, Network, Floppy.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 ----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>set-VM -VM "core" -autoStart AlwaysStartup</dev:code><dev:remarks><maml:para>Sets the VM named core on the local host to start whenever the host OS boots.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 3 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Set-VM "CORE-%" -bootorder CD,IDE,net,Floppy -autoStart AlwaysStartup </dev:code><dev:remarks><maml:para>Take all the machines whose names begin CORE- 
+and set their boot order and start-up action.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Get-VMSettingData</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink><maml:linkText>MsVM_VirtualSystemGlobalSettingData WMI object on MSDN </maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc136939(VS.85).aspx</maml:uri></maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MSVM_VirtualSystemSettingData WMI object on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136944(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>New-VM</command:name><maml:description><maml:para>Creates a new Hyper-V Virtual Machine.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>New</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Creates a new Hyper-V Virtual Machine, and returns a WMI object
+representing it. After the machine is created you should set
+memory, CPU count, network adapters and disks.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>New-VM</maml:name><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>Name</maml:name><maml:description><maml:para>Specifies the display name of the new Virtual Machine. 
+Hyper-V does not require these names to be unique.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Path</maml:name><maml:description><maml:para>The location for VM files, including snapshots. 
+Hyper-V has a default location, which will be used if no path is specified.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the Virtual Machine will reside.
+By default "." , the local computer, is used.
+Unlike other commands, New-VM supports only a single server.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>Name</maml:name><maml:description><maml:para>Specifies the display name of the new Virtual Machine. 
+Hyper-V does not require these names to be unique.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Path</maml:name><maml:description><maml:para>The location for VM files, including snapshots. 
+Hyper-V has a default location, which will be used if no path is specified.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the Virtual Machine will reside.
+By default "." , the local computer, is used.
+Unlike other commands, New-VM supports only a single server.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The Name(s) to assign to new machine(s) may be piped.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>Object</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>A WMI object representing the newly created machine.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>New-VM -Name "Tenby" -Server "James-2008"</dev:code><dev:remarks><maml:para>Creates a new VM named "Tenby" on the server named "James-2008".</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Get-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink><maml:linkText>Remove VM</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink>
+										<maml:linkText>DefineVirtualSystem Method on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136786(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Import-VM</command:name><maml:description><maml:para>Imports a Virtual Machine which was previously exported.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Import</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Imports a Virtual Machine which was previously exported.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Import-VM</maml:name><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>Paths</maml:name><maml:description><maml:para>The location(s) of the exported files, the name may be written as Path.
+If no Path is passed as a parameter, the Import-VM looks for input to be piped to it. 
+If an object is piped, the command will look for Fullname, Path or Diskpath properties, in that order.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the import is to be performed. 
+By default "." , the local computer, is used. 
+Only a single server name may be specified for import.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>ReImportVM</maml:name><maml:description><maml:para>If specified the ZIP files for an import are copied back to their location
+ and the VM specified is deleted. 
+Note that no check is performed to confirm the deleted VM is the same one which will be imported.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>ReUseIDs</maml:name><maml:description><maml:para>Indicates the re-imported VM should use the same IDs as when it was exported.
+This can cause a conflict if the old VM still exists.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Preserve</maml:name><maml:description><maml:para>Specifies that a zip file should be made containing those files
+which are consumed during import..</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -Whatif, -Confirm, -Verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>Paths</maml:name><maml:description><maml:para>The location(s) of the exported files, the name may be written as Path.
+If no Path is passed as a parameter, the Import-VM looks for input to be piped to it. 
+If an object is piped, the command will look for Fullname, Path or Diskpath properties, in that order.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the import is to be performed. 
+By default "." , the local computer, is used. 
+Only a single server name may be specified for import.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>ReImportVM</maml:name><maml:description><maml:para>If specified the ZIP files for an import are copied back to their location
+and the VM specified is deleted. 
+Note that no check is performed to confirm the deleted VM is the same one which will be imported.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>ReUseIDs</maml:name><maml:description><maml:para>Indicates the re-imported VM should use the same IDs as when it was exported.
+ This can cause a conflict if the old VM still exists.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Preserve</maml:name><maml:description><maml:para>Specifies that a zip file should be made containing those files
+which are consumed during import..</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Paths may be piped into Import-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples/><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Export-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink><maml:linkText>ImportVirtualSystem method on MSDN </maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc136798(VS.85).aspx</maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Export-VM</command:name><maml:description><maml:para>Exports a VM.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Export</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>The command supports the option to the copy the state of the VM 
+(as in the GUI) and can also make a backup copy of the files 
+which will be consumed during import.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Export-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to export. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Path</maml:name><maml:description><maml:para>The location where the exported VM files will be placed..</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>CopyState</maml:name><maml:description><maml:para>If present indicates that the state, such as virtual hard disks,
+saved state files, and memory content files, should be exported.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Preserve</maml:name><maml:description><maml:para>Specifies that a zip file should be made containing those files which are consumed during import.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to import. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Path</maml:name><maml:description><maml:para>The location where the exported VM files will be placed.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>CopyState</maml:name><maml:description><maml:para>If present indicates that the state, such as virtual hard disks, 
+saved state files, and memory content files, should be exported.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Preserve</maml:name><maml:description><maml:para>Specifies that a zip file should be made containing those files which are consumed during import.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Export-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples/><maml:relatedLinks><maml:navigationLink><maml:linkText>Import-VM</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink>
+										<maml:linkText>ExportVirtualSystem method on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136793(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Remove-VM</command:name><maml:description><maml:para>Removes the specified VM from the server.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Remove</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Delete a VM and its snapshots, but does not delete its Virtual Hard Disk files.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Remove-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to remove. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to remove. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Remove-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The ID of a WMI Job.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 ------</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Remove-VM -VM "Tenby"</dev:code><dev:remarks><maml:para>Removes the VM named "Tenby" from the local server.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>New-VM</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>DestroyVirtualSystem Method on MSDN </maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc136790(VS.85).aspx</maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Get-VMSummary</command:name><maml:description><maml:para>Returns summary information about running VMs.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMSummary</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>For each VM a custom object is returned with the following properties
+Host             The Hyper-V server hosting the VM
+VMElementName    The Display Name for the VM
+Name             The GUID which uniquely identifies the VM
+CreationTime     The Time the VM was created
+EnabledState     The current state of the VM as a Enum
+Notes            The Notes field for the VM
+CPUCount         The number of CPUs assigned to the VM
+CPULoad          The instantaneous CPU load on the VM
+CPULoadHistory   An Array of CPU loads for the last 100 seconds 
+MemoryUsage      Memory used by the VM
+Heartbeat        The State of the VM heartbeat as a number
+HeartbeatText    The State of the VM heartbeat as converted to text
+Uptime           The VM uptime in Milliseconds
+UptimeFormatted  The VM uptime formatted as Hours, minutes and seconds 
+GuestOS          The Guest OS Identity string returned by KVP exchange
+Snapshots        The number of Snapshots which exist of the Virtual Machine
+Jobs             The asynchronous jobs associated with the VM  
+FQDN             The fully qualified domain name returned by KVP exchange
+IpAddress        The IP address found when attempting to ping the FQDN.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMSummary</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to provide information about. 
+This may be a WMI object representing a VM,
+ a string object containing the name of a VM (or a wildcard which matches multiple VMs),
+or an array containing a mixture of such objects.
+It may be passed via the pipe.
+If no VM is specified a summary is returned for all VMs.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>%</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to provide information about. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs),
+or an array containing a mixture of such objects.
+It may be passed via the pipe.
+If no VM is specified a summary is returned for all VMs.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Get-VMSummary.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>Object</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Objects which describe the VM(s).</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VMSummary -server james-2008,jackie-2008 | format-table -autosize </dev:code><dev:remarks><maml:para>Outputs formatted status for all VMs on the servers named "James-2008" and "Jackie-2008" (subject to the constraints of screen width).</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VMSmmary "Windows 2008 Ent Full TS"  </dev:code><dev:remarks><maml:para>Outputs status for the VM named "Server 2008 ENT Full TS" on the local server.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks/></command:command><command:command><command:details><command:name>Start-VM</command:name><maml:description><maml:para>Puts the specified Hyper-V Virtual Machine into the Running state.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Start</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Starting a VM restores the contents of memory if they were saved. 
+A background WMI job is created to change the state.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Start-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to start. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.
+ This does not guarantee that the Operating system in the VM is responsive.
+To check that the OS has loaded use the HeartBeatTimeout Parameter.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>HeartBeatTimeOut</maml:name><maml:description><maml:para>If specified the VM is checked for a response from the Heartbeat 
+integration component every 5 seconds until either one is found 
+or the timeout expires.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Int</command:parameterValue><dev:type><maml:name>Int</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -Confirm, -Verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to start. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.
+This does not guarantee that the Operating system in the VM is responsive.
+To check that the OS has loaded use the HeartBeatTimeout Parameter.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>HeartBeatTimeout</maml:name><maml:description><maml:para>If specified the VM is checked for a response from the Heartbeat 
+integration component every 5 seconds until one is found 
+or the timeout expires.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Int</command:parameterValue><dev:type><maml:name>Int</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Start-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The ID of a WMI job..</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert><maml:para>Start-VM calls Set-VMstate passing it the VM and server it received..</maml:para></maml:alert></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Start-VM "London-DC" -HeartBeatTimeOut 300</dev:code><dev:remarks><maml:para>Starts the VM named "London-DC" and waits up to 5 minutes for a heartbeat
+before running the next command.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>Set-VMState</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Stop-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Save-VM</command:name><maml:description><maml:para>Puts the specified Hyper-V Virtual Machine into the Suspended (saved) state.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Save</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Saving a VM stores the contents of memory before powering it off.
+A background WMI job is created to change the state.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Save-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to save. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default
+is to request confirmation (unless the $confirmPreference variable
+ is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch </maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to save. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Save-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The ID of a WMI job..</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert><maml:para>Save-VM has an alias of suspend-VM. It calls Set-VMstate passing it the VM and Server parameters it received..</maml:para></maml:alert></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Save-VM (Select-VM -Server "JAMES-2008" -Multiple)</dev:code><dev:remarks><maml:para>Prompts the user to select one or more of the VMs on the server
+ named "JAMES-2008", and saves the selected VM(s).</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -running  | Save-VM</dev:code><dev:remarks><maml:para>Saves all VMs on the local server that are in the Running state.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>Set-VMState</maml:linkText><maml:uri></maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Stop-VM</command:name><maml:description><maml:para>Puts the specified Hyper-V Virtual Machine into the Stopped state.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Stop</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Stopping a VM powers it off without saving its state.
+If it is in a saved state, the saved state information is deleted.
+A background WMI job is created to change the state.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Stop-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to Stop. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>false</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to Stop. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Stop-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The ID of a WMI job..</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert><maml:para>Stop-VM calls Set-VMstate passing it the VM and Server parameters it received..</maml:para></maml:alert></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Stop-VM (Select-VM -Server "JAMES-2008" -Multiple)</dev:code><dev:remarks><maml:para>Prompts the user to select one or more of the VMs on the server named
+"JAMES-2008", and stops the selected VMs.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -running  | Stop-VM</dev:code><dev:remarks><maml:para>Stop all VMs that are in the Running state.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>Set-VMState</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Start-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Set-VMState</command:name><maml:description><maml:para>Sets the state of one or more VM(s) to Running, Stopped, Suspended etc.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Set</command:verb><command:noun>VMState</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Sets the state of one or more VM(s) to Running, Stopped, Suspended etc.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Set-VMState</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) whose state should be changed. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>State</maml:name><maml:description><maml:para>The desired new state If a valid integer or state name is passed,
+it is converted to the VMState Enum.</maml:para></maml:description><command:parameterValue required="false" variableLength="">[VMState]</command:parameterValue><dev:type><maml:name>[VMState]</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+									<maml:name>Wait</maml:name>
+									<maml:description>
+										<maml:para>Specifies the command should not return until the WMI job it starts has completed.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) whose state should be changed. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>State</maml:name><maml:description><maml:para>The desired new state If a valid integer or state name is passed,
+it is converted to the VMState Enum.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+										<maml:name>Wait</maml:name>
+										<maml:description>
+											<maml:para>Specifies the command should not return until the WMI job it starts has completed.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Set-VMState.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The ID of a WMI job..</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert><maml:para>VMState is intended for use by Start-, Stop- and Save- VM, but may be called directly.</maml:para></maml:alert></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -Name "Core-%" | Set-VMState -State ([VMState]::Running)</dev:code><dev:remarks><maml:para>Starts all VMs with names that start with "CORE-". using the [VMState] enum.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Set-VMState -VM "Core","Tenby" -Server "JAMES-2008" - State "Running"</dev:code><dev:remarks><maml:para>Starts the VMs named "Core" and "Tenby" on the server "JAMES-2008" 
+to the running state using the name of the state.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>RequestStateChange Method on MSDN</maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc723874(VS.85).aspx</maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Invoke-VMShutdown</command:name><maml:description><maml:para>Instructs the OS in specified Virtual Machine to begin an orderly shutdown.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Invoke</command:verb><command:noun>VMShutdown</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Stopping a VM does not close down the operating system inside it.
+The Hyper-V integration components include a Shutdown component,
+which tells the guest OS to start a clean shut down. 
+This command invokes that component - and will only work against VMs which have it installed.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Invoke-VMShutdown</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to modify. This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Reason</maml:name><maml:description><maml:para>Sent to the guest OS for information about why the remote shutdown was started.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"Scripted"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>false</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -Confirm, -Verbose etc., with nested and Recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation
+(unless the $confirmPreference variable is set to "none".).</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to shutdown.
+ This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches multiple VMs),
+ or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Reason</maml:name><maml:description><maml:para>Sent to the guest OS for information about why the remote shutdown was started.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"Scripted"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Wait</maml:name><maml:description><maml:para>Specifies that the command should not return until the WMI job is complete.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none".).</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Invoke-VMShutdowne.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The ID of a WMI job..</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Invoke-VMShutdown (Select-VM -Server "JAMES-2008" -Multiple) -force</dev:code><dev:remarks><maml:para>Prompts the user to select one or more of the VMs on the server "JAMES-2008", and shuts down the selected VMs without further prompting.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -Running | Invoke-VMShutdown </dev:code><dev:remarks><maml:para>Shuts down all VMs that are in the Running state on the local server.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>ShutdownComponent - InitiateShutdown Method on MSDN</maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc703625(VS.85).aspx </maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Test-VMHeartbeat</command:name><maml:description><maml:para>Tests the HeartBeat integration component, to see if the VM is alive.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Test</command:verb><command:noun>VMHearBeat</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Although not a 100% reliable test because the OS in the VM may not have
+integration components available, they may not be installed or may be disabled.
+But where they are installed the provided the best indication of VM state.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Test-VMHeartbeat</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to check. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>HeartBeatTimeOut</maml:name><maml:description><maml:para>If specified the VM, is checked for a response from the heartbeat integration
+ component every 5 seconds until one is found or the timeout expires.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Int</command:parameterValue><dev:type><maml:name>Int</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to check. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>HeartBeatTimeout</maml:name><maml:description><maml:para>If specified, the VM is checked for a response from the heartbeat integration
+component every 5 seconds until one is found or the timeout expires.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Int</command:parameterValue><dev:type><maml:name>Int</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Test-VMHeartBeat.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The state of the Virtual Machine.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert>
+										<maml:para>.</maml:para>
+									</maml:alert></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>start-VM "London DC" ; Test-VMheartBeat "London DC" -Timeout 300; start-VM "London SQL"</dev:code><dev:remarks><maml:para>Starts the VM named "London DC" and waits up to 5 minutes for its heartbeat.
+(This is the same as calling Start-VM "London-DC" -HeartBeatTimeOut 300. )
+Then starts the VM "London SQL".</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>MSVM_HeartbeatComponentClass on MSDN </maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc136840(VS.85).aspx</maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Ping-VM</command:name><maml:description><maml:para>Pings a Virtual Machine with ICMP Ping.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Ping</command:verb><command:noun>VM</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>First attempts to use integration components to discover the 
+Fully Qualified Domain Name, IP4 or IP6 address of the VM. 
+Then attempts to ping that the VM using ICMP from the machine where the command is running.
+If the Fully Qualified Domain Name is used it must be resolvable from the machine where the command is running.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Ping-VM</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to check. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs),
+ or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+									<maml:name>UseIP4Address</maml:name>
+									<maml:description>
+										<maml:para>Beginning with Server 2008 R2 the Key Value pair exchange integration component
+sends the IPv4 and IPv6 addresses of the VM to the host computer.
+If the UseIP4Address or UseIP6Address switches are used then Ping-VM will use 
+an IP address will be used, if available, instead of the FQDN. 
+If both are specified IPV6 will be used if available, then Ip4 will be tried. </maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name>Switch</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+									<maml:name>UseIP6Address</maml:name>
+									<maml:description>
+										<maml:para>Beginning with Server 2008 R2 the Key Value pair exchange integration component
+sends the IPv4 and IPv6 addresses of the VM to the host computer.
+If the UseIP4Address or UseIP6Address switches are used then Ping-VM will use 
+an IP address will be used, if available, instead of the FQDN. 
+If both are specified IPV6 will be used if available, then Ip4 will be tried. </maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to Check. This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>UseIP4Address</maml:name>
+										<maml:description>
+											<maml:para>Beginning with Server 2008 R2 the Key Value pair exchange integration component
+sends the IPv4 and IPv6 addresses of the VM to the host computer.
+If the UseIP4Address or UseIP6Address switches are used then Ping-VM will use 
+an IP address will be used, if available, instead of the FQDN. 
+If both are specified IPV6 will be used if available, then Ip4 will be tried. </maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name>Switch</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>UseIP6Address</maml:name>
+										<maml:description>
+											<maml:para>Beginning with Server 2008 R2 the Key Value pair exchange integration component
+sends the IPv4 and IPv6 addresses of the VM to the host computer.
+If the UseIP4Address or UseIP6Address switches are used then Ping-VM will use 
+an IP address will be used, if available, instead of the FQDN. 
+If both are specified IPV6 will be used if available, then Ip4 will be tried. </maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name>Switch</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Ping-VM.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>Object</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>An object containing the VM's name, FQDN, Network Address, and status.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Ping-VM "Tenby" -server james2008</dev:code><dev:remarks><maml:para>Attempts to ping from the local machine to the VM named "Tenby" on the
+server James-2008. This relies on the integration components being present
+and the FQDN they return being resolvable on the local machine.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>get-VM -r | foreach-object {if ((Ping-VM $_).statusCode -ne 0) {"$($_.elementname) is inaccessible"} }</dev:code><dev:remarks><maml:para>Gets the running VMs on the local server, pings each of them and outputs a
+ message for any which are running but can't be pinged.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>Get-VMKvp</maml:linkText><maml:uri></maml:uri></maml:navigationLink><maml:navigationLink><maml:linkText>WIn32_PingStatus WMI object on MSDN </maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/aa394350(VS.85).aspx</maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Get-VMThumbnail</command:name><maml:description><maml:para>Creates a PNG image of a running VM.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMThumbnail</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Creates a PNG image of a running VM, at a given width and height.
+The image can either be saved to a file or passed on to another command.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMThumbnail</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to capture a picture of.
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>width</maml:name><maml:description><maml:para>The width of the Image in Pixels (default 800).</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>800</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Height </maml:name><maml:description><maml:para>The Height of the Image in Pixels (default 600).</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>600</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Path</maml:name><maml:description><maml:para>The path to save the bitmap image to. 
+If no name is specified the VM name is used. 
+If no directory is included the current one is used.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Passthru</maml:name><maml:description><maml:para>Specifies that the Bitmap image should be returned as an object 
+and not saved as a file.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to capture an picture of. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Width</maml:name><maml:description><maml:para>The width of the Image in Pixels (default 800).</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>800</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Height</maml:name><maml:description><maml:para>The Height of the Image in Pixels (default 600).</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>600</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Path   </maml:name><maml:description><maml:para>The path to save the image to, if no name is specified the VM name is used. 
+If no directory is included the current one is used.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PassThru</maml:name><maml:description><maml:para>Specifies that the Bitmap image should be returned as an object 
+and not saved as a file.</maml:para></maml:description><command:parameterValue required="false" variableLength="">Switch</command:parameterValue><dev:type><maml:name>Switch</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into Get-VMThumbnail.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>System.drawing.bitmap</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>A Screenshot of the VM.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 -----</maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VMThumbnail core   </dev:code><dev:remarks><maml:para>Gets a 800x600 Pixel PNG image for the machine named core, 
+and writes it as core.PNG in the current folder..</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>While ($true) { 
+   Get-VMThumbnail -VM "core" -width 640 -height 480 `
+              -path ((get-date).toLongTimeString().replace(":","-") + ".PNG") 
+   Sleep -Seconds 10
+}  </dev:code><dev:remarks><maml:para>Creates a loop which continues until interrupted; 
+in the loop, creates an image of the VM “Core” with a file name based on the current time. 
+Then waits 10 seconds and repeats.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 3 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>Get-VM -Running -server "James-2008" | Get-VMThumbnail -width 320 -height 240 -path images </dev:code><dev:remarks><maml:para>Discovers running VMs on Server named "James-2008", 
+and writes a 320x240 size image to the folder named images for each one.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks><maml:navigationLink><maml:linkText>GetVirtualSystemThumbnailImage method on MSDN : </maml:linkText><maml:uri>http://msdn.microsoft.com/en-us/library/cc160707(VS.85).aspx</maml:uri></maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>New-VMConnectSession </command:name><maml:description><maml:para>Opens a VMConnect session to the specified VM on the specified server.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>New</command:verb><command:noun>VMConnectSession </command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>VMConnect uses RDP to connect to a "Virtual KVM switch" on the
+Virtualized graphics card, keyboard and mouse of the Virtual Machine, 
+rather than to any Remote Desktop Service running in its Operating System. 
+The connection is made by invoking %programFiles%\hyper-v\VMConnect.exe. 
+The same program which is called by the GUI Hyper-V manager.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>New-VMConnectSession </maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to connect to. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to connect to. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>Virtual Machines may be piped into New-VMConnectSession.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>INT</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><maml:description><maml:para>The process ID of the VMConnect session.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert><maml:para>.</maml:para></maml:alert></maml:alertSet><command:examples><command:example><maml:title>----- Example 1 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>New-VMConnectSession -VM "tenby"</dev:code><dev:remarks><maml:para> Launches a VMConnect session to a Virtual Machine named "Tenby" on the local server.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 2 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>New-VMConnectSession -VM $myVM -server James-2008</dev:code><dev:remarks><maml:para>Launches a VMConnect session to the VM whose name is variable $myVM,
+located on the server James-2008.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example><command:example><maml:title>----- Example 3 ----- </maml:title><maml:introduction><maml:para>.</maml:para></maml:introduction><dev:code>$VMConnectPID = New-VMConnectSession -VM "tenby" ; Start-Sleep -Seconds 60 ; Stop-Process -Id $VMConnectPID</dev:code><dev:remarks><maml:para>Launches a VMConnect session to the VM named "Tenby" on the local server,
+waits one minute, and then closes VMConnect.</maml:para></dev:remarks><command:commandLines><command:commandLine><command:commandText></command:commandText></command:commandLine></command:commandLines></command:example></command:examples><maml:relatedLinks/></command:command><command:command>
+									<command:details>
+										<command:name>Get-VMBuildScript</command:name>
+										<maml:description>
+											<maml:para>Outputs a script which will build the VM.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Get</command:verb>
+										<command:noun>VMBuildScript</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Outputs New-VM, add-VMxxxx, Set-VMxxx commands to recreate the same VM.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Get-VMBuildScript</maml:name>
+											<command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true">
+												<maml:name>VM</maml:name>
+												<maml:description>
+													<maml:para>The Virtual Machine(s) to get build scripts for.
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe. 
+If no VM is specified the script is output for all VMs.7.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para>.</maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"%"</dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true">
+											<maml:name>VM</maml:name>
+											<maml:description>
+												<maml:para>The Virtual Machine(s) to get build scripts for.
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe. 
+If no VM is specified the script is output for all VMs.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue>"%"</dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="true" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>Virtual Machines may be piped into Get-VMBuildScript.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name>String[]</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>A Text of the commands to build the VM.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para>.</maml:para>
+											</maml:introduction>
+											<dev:code>Get-VMBuildScript "Tenby"</dev:code>
+											<dev:remarks>
+												<maml:para>Outputs a script to build the VM named "Tenby".</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									</command:examples>
+									<maml:relatedLinks>
+										
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Move-VM</command:name>
+										<maml:description>
+											<maml:para>Moves one or more VMs between cluster nodes using Live Migration.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Move</command:verb>
+										<command:noun>VM</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Moves VMs between cluster nodes. 
+If multiple VMs are specified they are moved sequentially. 
+If the FailoverClusters module is not loaded or a VM is not running, 
+or not configured as a cluster application then a warning is returned.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Move-VM</maml:name>
+											<command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true">
+												<maml:name>VM</maml:name>
+												<maml:description>
+													<maml:para>The Virtual Machine(s) to migrate.
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe. 
+If no VM is specified all VMs are migrated.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para>.</maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"%"</dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Destination</maml:name>
+									<maml:description>
+										<maml:para>The name of the cluster node to which Virtual Machines should be migrated.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para>.</maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none".).</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true">
+											<maml:name>VM</maml:name>
+											<maml:description>
+												<maml:para>The Virtual Machine(s) to migrate.
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe. 
+If no VM is specified all VMs are migrated.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue>"%"</dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Destination</maml:name>
+										<maml:description>
+											<maml:para>The name of the cluster node to which Machines should be migrated.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="true" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -Whatif, -confirm, -verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the default is to request confirmation 
+(unless the $confirmPreference variable is set to "none".).</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>Virtual Machines may be piped into Move-VM.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para>.</maml:para>
+											</maml:introduction>
+											<dev:code>Move-VM</dev:code>
+											<dev:remarks>
+												<maml:para>Moves all Virtual Machines on the local server to the first other node the cluster - this is only recommended for 2 node clusters.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									<command:example>
+										<maml:title>----- Example 2 ----- </maml:title>
+										<maml:introduction>
+											<maml:para>.</maml:para>
+										</maml:introduction>
+										<dev:code>Get-VM -server NodeA -running | move-VM -Destination NodeB</dev:code>
+										<dev:remarks>
+											<maml:para>Gets VMs running on the Server named "Node A" and moves them to the server "nodeB".</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>Get-VMClusterGroup</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMLiveMigrationNetwork</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Set-VMLiveMigrationNetwork</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Get-VMClusterGroup </command:name>
+										<maml:description>
+											<maml:para>Returns the Cluster Group of which the VM is a member.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Get</command:verb>
+										<command:noun>VMBuildScript</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Returns the cluster group of which the VM is a member.
+If the VM is not clustered or if the FailoverCluster Module is not loaded the command returns $null. 
+This can be used as a test for Highly-Available VMs.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Get-VMClustergroup </maml:name>
+											<command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true">
+												<maml:name>VM</maml:name>
+												<maml:description>
+													<maml:para>The Virtual Machine(s) to test
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe. 
+If no VM is specified all VMs are checked.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para>.</maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"%"</dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para>.</maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true">
+											<maml:name>VM</maml:name>
+											<maml:description>
+												<maml:para>The Virtual Machine(s) to test
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches multiple VMs), 
+or an array containing a mixture of such objects.
+It may be passed via the pipe. 
+If no VM is specified all VMs are checked.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue>"%"</dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="true" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer, is used. 
+An array of server names may be passed but wildcards cannot be used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>Virtual Machines may be piped into Get-VMClusterGroup.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para>.</maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para>.</maml:para>
+											</maml:introduction>
+											<dev:code>Get-VMClusterGroup "Tenby"</dev:code>
+											<dev:remarks>
+												<maml:para>Returns the cluster group for the Virtual Machine named "Tenby" 
+or null if it is not clustered..</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									<command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para>.</maml:para>
+										</maml:introduction>
+										<dev:code>Get-VMClusterGroup | where-object {$_.state -eq "Offline"} | Move-ClusterGroup </dev:code>
+										<dev:remarks>
+											<maml:para>Moves offline VMs  to the other node of a cluster. 
+To move running VMs use Move-VM..</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>Move-VM</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMLiveMigrationNetwork</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Set-VMLiveMigrationNetwork</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command></helpItems>

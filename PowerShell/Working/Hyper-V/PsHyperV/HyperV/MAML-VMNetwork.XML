@@ -1,0 +1,2821 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?mso-infoPathSolution PIVersion="1.0.0.0" name="urn:schemas-microsoft-com:office:infopath:PSH-Help:" solutionVersion="1.0.0.15" productVersion="14.0.0" href="file:///C:\Users\Jamesone\Documents\windowsPowershell\PSH-Help.xsn" ?>
+<?mso-application progid="InfoPath.Document" versionProgid="InfoPath.Document.2"?>
+<helpItems xmlns="http://msh" schema="maml" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" 
+           xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" 
+           xmlns:maml="http://schemas.microsoft.com/maml/2004/10" 
+           xmlns:my="http://schemas.microsoft.com/office/infopath/2003/myXSD/2009-07-13T15:24:29"
+           xmlns:xd="http://schemas.microsoft.com/office/infopath/2003" 
+           xml:lang="en-gb">
+	
+<command:command><command:details><command:name>Get-VMNic</command:name><maml:description><maml:para>Returns information about Network Interface Cards.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMNic</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Returns information about legacy and/or VMbus Network Interface Cards 
+on one or more Virtual Machine(s).</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMNic</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to query. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe. 
+If no VM is specified the information will be returned for all VMs on the server.
+If no VM is specified, NICs from all VMs Will be returned.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+									<maml:name>Legacy</maml:name>
+									<maml:description>
+										<maml:para>Select legacy (emulated) NICs. 
+If the user specifies both -legacy and -VMbus OR neither then all types of NIC Will be returned.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+									<dev:type>
+										<maml:name>Switch</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+									<maml:name>VMBUs</maml:name>
+									<maml:description>
+										<maml:para>Select VM-Bus(synthetic) NICs. 
+If the user specifies both -legacy and -VMbus OR neither then all types of NIC Will be returned.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+									<dev:type>
+										<maml:name>Switch</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to query. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe. If no VM is specified, NICs from all VMs Will be returned.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Legacy</maml:name>
+										<maml:description>
+											<maml:para>Select legacy (emulated) NICs. 
+If the user specifies both -legacy and -VMbus OR neither then all types of NIC Will be returned.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+										<dev:type>
+											<maml:name>Switch</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>VMBus</maml:name>
+										<maml:description>
+											<maml:para>Select VM-Bus(synthetic) NICs. 
+If the user specifies both -legacy and -VMbus OR neither then all types of NIC Will be returned.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+										<dev:type>
+											<maml:name>Switch</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>VMs can be piped into GetVMNIC.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example>
+										<maml:title>----- Example 1 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Get-VMNic $core -legacy -VMbus</dev:code>
+										<dev:remarks>
+											<maml:para>Returns both Legacy and VMbus NICs found on the VM pointed to by $core.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Select-VMNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Add-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_EmulatedEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136836(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_SyntheticEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136914(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Get-VMSwitch</command:name><maml:description><maml:para>Returns one or more Virtual Switch objects.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMSwitch</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>If no name is specified returns all the Virtual Network Switches on a host,
+Otherwise returns the switch(es) which match the given name.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMSwitch</maml:name><command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>VirtualSwitchName</maml:name><maml:description><maml:para>The name of a Switch being sought (which may include wildcards.) 
+WMI queries use % as a wildcard, but the command will convert * to %. 
+Name can be used as an Alias for VirtualSwitchName (as well as contractions of it).</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server(s) to search for the switch(es)
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="false" pipelineInput="true"><maml:name>VirtualSwitchName</maml:name><maml:description><maml:para>The name of a Switch being sought (which may include wildcards.) 
+WMI queries use % as a wildcard, but the command will convert * to %
+Name can be used as an Alias for VirtualSwitchName (as well as contractions of it).</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server(s) to search for the switch(es).
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>Names can be passed via the pipe.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>System.Management.ManagementObject</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>MsVM_VirtualSwitch WMI object(s) representing the switches.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples/><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>New-VMExternalSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMInternalSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMPrivateSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_VirtualSwitch Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc542584(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command>
+									<command:details>
+										<command:name>Get-VMNicPort</command:name>
+										<maml:description>
+											<maml:para>Returns the switch port object for a Network Interface Card.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Get</command:verb>
+										<command:noun>VMNicPort</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Returns the switch port object for a Network Interface Card: 
+This is the logical port on a switch, not the switch itself. 
+It can be used to find the switch.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Get-VMNicPort</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+												<maml:name>NIC</maml:name>
+												<maml:description>
+													<maml:para>An object representing the a Network Interface Card whose port is sought.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+												<dev:type>
+													<maml:name>System.Management.ManagementObject</maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										</command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+											<maml:name>NIC</maml:name>
+											<maml:description>
+												<maml:para>An object representing the a Network Interface Card whose port is sought.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+											<dev:type>
+												<maml:name>System.Management.ManagementObject</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									</command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name>ManagementObject</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The NIC object.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name>MsVM_SwitchPort</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The Switch port object associated with the noc.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>Get-VMNic $core -legacy -VMbus | get-VMNicPort</dev:code>
+											<dev:remarks>
+												<maml:para>Returns the switch-ports on the NICs of the VM pointed to by $core.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									</command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>Select-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMNICSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Get-VMNicSwitch</command:name>
+										<maml:description>
+											<maml:para>Returns the switch connected to a a Network Interface Card.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Get</command:verb>
+										<command:noun>VMNicPort</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Returns the WMI object representing the Virtual Network Switch 
+connected to a Network Interface Card.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Get-VMNicSwitch</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+												<maml:name>NIC</maml:name>
+												<maml:description>
+													<maml:para>An object representing the a Network Interface Card whose switch is sought.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+												<dev:type>
+													<maml:name>System.Management.ManagementObject</maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										</command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+											<maml:name>NIC</maml:name>
+											<maml:description>
+												<maml:para>An object representing the a Network Interface Card whose switch is sought.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+											<dev:type>
+												<maml:name>System.Management.ManagementObject</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									</command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name>ManagementObject</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The NIC object.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name>MsVM_SwitchPort</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The Switch port object associated with the noc.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>(Get-VMNic $VM -legacy -VMbus | get-VMNicSwitch) | foreach-object {$_.elementName}</dev:code>
+											<dev:remarks>
+												<maml:para>Returns names of Switches used by the VM pointed to by $core.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+											<maml:linkText>Get-VMNIC</maml:linkText>
+											<maml:uri></maml:uri>
+										</maml:navigationLink>
+									<maml:navigationLink>
+										<maml:linkText>Get-VMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command><command:details><command:name>Add-VMNic</command:name><maml:description><maml:para>Creates a new legacy or VM-bus Network Interface Card on a Virtual Machine.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Add</command:verb><command:noun>VMNIC</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Creates a new Network Interface Card on a virtual machine. 
+It can create Legacy (emulated) or VM-bus (Synthetic) NICs, 
+assign a fixed MAC address, and specify the GUID which identifies a VM-bus NIC.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Add-VMNic</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to modify. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="true" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Virtualswitch</maml:name>
+									<maml:description>
+										<maml:para>The Virtual switch to connect. 
+This may be a WMI object representing a switch 
+or a string object containing the name of a switch
+(if a wildcard is used it must resolve to a single switch). 
+If not specified, the new NIC is created in a disconnected state.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+									<maml:name>MAC</maml:name>
+									<maml:description>
+										<maml:para>MAC address. 
+If not specified the Network card will be assigned a MAC address automatically, the first time it is used.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+									<dev:type>
+										<maml:name>String</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+									<maml:name>GUID</maml:name>
+									<maml:description>
+										<maml:para>VM-Bus NICS are identified by a GUID. 
+If a new VM is created, using an existing VHD file the OS in the VM 
+will see a new NIC unless the original GUID is used.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+									<dev:type>
+										<maml:name>String</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>[System.GUID]::NewGUID</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="true" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+									<maml:name>Legacy</maml:name>
+									<maml:description>
+										<maml:para>Create a legacy (emulated) NIC. 
+If not specified a VM-bus (Synthetic) NIC Will be created.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+									<dev:type>
+										<maml:name>Switch</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to modify. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Virtualswitch</maml:name>
+										<maml:description>
+											<maml:para>The Virtual switch to connect. 
+This may be a WMI object representing a switch 
+or a string object containing the name of a switch 
+(if a wildcard is used it must resolve to a single switch). 
+If not specified, the new NIC is created in a disconnected state.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>MAC</maml:name>
+										<maml:description>
+											<maml:para>MAC address. If not specified the Network card will be assigned a 
+MAC address automatically, the first time it is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>GUID</maml:name>
+										<maml:description>
+											<maml:para>VM-Bus NICS are identified by a GUID. 
+If a new VM is created, using an existing VHD file the OS in the VM 
+will see a new NIC unless the original GUID is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>[System.GUID]::NewGUID</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false">
+										<maml:name>Legacy</maml:name>
+										<maml:description>
+											<maml:para>Create a legacy (emulated) NIC. 
+If not specified a VM-Bus (Synthetic) NIC Will be created.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">Switch</command:parameterValue>
+										<dev:type>
+											<maml:name>Switch</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="6" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="7" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>VMs can be piped into  Add-VMNic.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>A WMI object representing the new NIC.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example>
+										<maml:title>----- Example 1 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Add-VMNic $core (select-VMSwitch)</dev:code>
+										<dev:remarks>
+											<maml:para>Adds a VM-bus nic to the VM pointed to by $core , choosing the connection from
+a list of switches.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example><command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Add-VMNIC "tenby" (Select-VMswitch) -legacy</dev:code>
+										<dev:remarks>
+											<maml:para>Adds a legacy nic to the VM named Tenby on the local server, 
+choosing the connection from a list of switches.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example><command:example>
+										<maml:title>----- Example 3 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>get-VM core-% -Server James-2008 | add-VMnic -virtualSwitch "Internal Virtual Network" -legacy</dev:code>
+										<dev:remarks>
+											<maml:para>Adds a legacy nic to those VMs on Server James-2008 which have names
+beginning Core- 
+and binds them to the "Internal virtual network" switch.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Get-VMNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_EmulatedEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136836(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_SyntheticEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136914(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Remove-VMNic</command:name><maml:description><maml:para>Removes a Network Interface Card from a VM.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Remove</command:verb><command:noun>VMNIC</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Removes a Network Interface Card from a VM.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Remove-VMNic</maml:name><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+									<maml:name>NIC</maml:name>
+									<maml:description>
+										<maml:para>The NIC to remove from the VM.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+									<dev:type>
+										<maml:name>System.Management.ManagementObject</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>VM</maml:name><maml:description><maml:para>The VM does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>The Server does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+										<maml:name>NIC</maml:name>
+										<maml:description>
+											<maml:para>The NIC to remove from the VM.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+										<dev:type>
+											<maml:name>System.Management.ManagementObject</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>VM</maml:name><maml:description><maml:para>The VM does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>The Server does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>System.Management.ManagementObject</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>NIC objects may be Piped into Remove VMNic.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example>
+										<maml:title>----- Example 1 ----- </maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Remove-VMNIC $core (Select-VMNic $core) </dev:code>
+										<dev:remarks>
+											<maml:para>Removes a NIC on server pointed to by $core, if there are multiple NICs 
+the user will prompted to select one.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example><command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Get-VMNic -legacy -VM "Lab*" | remove-VMNic -force</dev:code>
+										<dev:remarks>
+											<maml:para>Gets all the legacy NICS on virtual machines with names beginning “Lab” and removes them without prompting.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Add-VMNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-VMNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_EmulatedEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136836(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_SyntheticEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136914(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Select-VMNic</command:name><maml:description><maml:para>Allows the user to select a Network Interface Cards connected to a VM.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Select</command:verb><command:noun>VMNic</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>If a VM has only a single Network Interface Card, that NIC will be returned.
+If it has more than one, a list will be displayed to allow the user to make
+a selection.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Get-VMNic</maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to query. 
+This may be a WMI object representing a VM, 
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.
+If no VM is specified, NICs from all VMs Will be returned.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"%"</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+									<maml:name>Multiple</maml:name>
+									<maml:description>
+										<maml:para>If specified allows the user to select multiple NICs. 
+This is particularly useful when multiple VMs are specified.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>False</dev:defaultValue>
+								</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true"><maml:name>VM</maml:name><maml:description><maml:para>The Virtual Machine(s) to query. 
+This may be a WMI object representing a VM,
+a string object containing the name of a VM (or a wildcard which matches
+multiple VMs), 
+or an array containing a mixture of such objects. 
+It may be passed via the pipe.
+If no VM is specified, NICs from all VMs Will be returned.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>%</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which a named Virtual Machine resides.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Multiple</maml:name>
+										<maml:description>
+											<maml:para>If specified allows the user to select multiple NICs. 
+This is particularly useful when multiple VMs are specified.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>False</dev:defaultValue>
+									</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>VMs can be piped into Select-VMNic.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>System.Management.ManagementObject</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>The Selected NIC.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example>
+										<maml:title>----- Example 1 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMnic $Core</dev:code>
+										<dev:remarks>
+											<maml:para>Allows the user to choose a single NIC from the NICs on the VM pointed to by $core.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Get-VMNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Add-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Select-VMSwitch</command:name><maml:description><maml:para>Returns a Virtual Switch objects.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMSwitch</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>If only one switch is found on a server, it is returned, 
+if more than one exists a list is provided to allow the user to make a selection.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Select-VMSwitch</maml:name><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the switches reside.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the switches reside.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>Names can be passed via the pipe.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>MsVM_VirtualSwitch.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples/><maml:relatedLinks/></command:command><command:command><command:details><command:name>New-VMSwitchPort </command:name><maml:description><maml:para>Returns a newly created Switch port.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>new</command:verb><command:noun>VMSwitchPort </command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>This command is intended to be called by other commands, and not directly from the command line.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>New-VMSwitchPort </maml:name><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true">
+									<maml:name>VirtualSwitch</maml:name>
+									<maml:description>
+										<maml:para>The Virtual switch to connect. 
+This may be a WMI object representing a switch 
+or a string object containing the name of a switch
+(if a wildcard is used it must resolve to a single switch).</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">MsVM_VirtualSwitch</command:parameterValue>
+									<dev:type>
+										<maml:name>MsVM_VirtualSwitch</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the a named switch is found.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="true" variableLength="" position="0" required="true" pipelineInput="true">
+										<maml:name>VirtualSwitch</maml:name>
+										<maml:description>
+											<maml:para>The Virtual switch to connect. 
+This may be a WMI object representing a switch or a string object containing the name of a switch
+(if a wildcard is used it must resolve to a single switch).</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>Specifies the Hyper-V server on which the a named switch is found.
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name>MsVM_VirtualSwitch</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>A switch can be passed via the pipe.</maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name>MsVM_VirtualSwitchPort</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para>The Newly created port.</maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title><maml:alert>
+										<maml:para>Not intended to be called directly, used by Add-VMNIC and SetVMNICConnection.</maml:para>
+									</maml:alert></maml:alertSet><command:examples/><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>CreateSwitchPort Method of the MsVM_VirtualSwitchManagementService Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136782(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command>
+									<command:details>
+										<command:name>Set-VMNICAddress</command:name>
+										<maml:description>
+											<maml:para>Changes the MAC address of a Network Interface Card.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Set</command:verb>
+										<command:noun>VMNICAddress</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Normally the MAC address of a new Network Interface Card is set the next time its VM boots.  
+The address is assigned from a range held by the server which hosts the VM 
+However the address can be set or changed manually.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Set-VMNICAddress</maml:name>
+											
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+									<maml:name>NIC</maml:name>
+									<maml:description>
+										<maml:para>An object representing the NIC to be modified.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+									<dev:type>
+										<maml:name>System.Management.ManagementObject</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+									<maml:name>MAC</maml:name>
+									<maml:description>
+										<maml:para>MAC address. This must be 12 Hex digits.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+									<dev:type>
+										<maml:name>String</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>VM</maml:name><maml:description><maml:para>The VM does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>Server</maml:name><maml:description><maml:para>The Server does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										
+									<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+										<maml:name>NIC</maml:name>
+										<maml:description>
+											<maml:para>An object representing the NIC to be modified.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+										<dev:type>
+											<maml:name>System.Management.ManagementObject</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+										<maml:name>MAC</maml:name>
+										<maml:description>
+											<maml:para>MAC address. This must be 12 Hex digits.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="true" variableLength="" position="2" required="false" pipelineInput="false">
+											<maml:name>VM</maml:name>
+											<maml:description>
+												<maml:para>The VM does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>The Server does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+ It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name>System.Management.ManagementObject</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>A WMI object describing the NIC may be piped into Set-VMNICAddress.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>Set-VMNICAddress (Select-VMNic $core) "00155D010101"</dev:code>
+											<dev:remarks>
+												<maml:para>Sets the MAC address of a NIC on the pointed to by $core, 
+if there are multiple NICs the user will prompted to select one.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									<command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMNic $vm | Set-VMNICAddress -mac "00155D010101" </dev:code>
+										<dev:remarks>
+											<maml:para>An alternative way to write example 1</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>Get-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-Nic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Select-VMNic</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_EmulatedEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136836(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_SyntheticEthernetPortSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136914(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Set-VMNICSwitch</command:name>
+										<maml:description>
+											<maml:para>Connects a Network Interface Card to a Virtual switch.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Set</command:verb>
+										<command:noun>VMNICSwitch</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Connects a Virtual Network Interface Card to a different a virtual switch. 
+If no switch is specified, the NIC is disconnected.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Set-VMNICSwitch</maml:name>
+											
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+									<maml:name>NIC</maml:name>
+									<maml:description>
+										<maml:para>The NIC to Modify.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+									<dev:type>
+										<maml:name>System.Management.ManagementObject</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+									<maml:name>Switch</maml:name>
+									<maml:description>
+										<maml:para>The Virtual switch to connect. 
+This may be a WMI object representing a switch 
+or a string object containing the name of a switch
+(if a wildcard is used it must resolve to a single switch).</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="true" variableLength="" position="2" required="true" pipelineInput="false"><maml:name>VM</maml:name><maml:description><maml:para>The VM does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength=""></command:parameterValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>VirtualSwitch</maml:name><maml:description><maml:para>The Server does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para></maml:description><command:parameterValue required="false" variableLength="">String</command:parameterValue><dev:type><maml:name>String</maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><dev:defaultValue>"."</dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+ It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										
+									<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+										<maml:name>NIC</maml:name>
+										<maml:description>
+											<maml:para>The NIC to Modify.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+										<dev:type>
+											<maml:name>System.Management.ManagementObject</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+										<maml:name>VirtualSwitch</maml:name>
+										<maml:description>
+											<maml:para>The Virtual switch to connect. 
+This may be a WMI object representing a switch 
+or a string object containing the name of a switch
+(if a wildcard is used it must resolve to a single switch).</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="true" variableLength="" position="2" required="true" pipelineInput="false">
+											<maml:name>VM</maml:name>
+											<maml:description>
+												<maml:para>The VMdoes not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>The Server does not need to be passed to the function 
+(it is determined from the NIC) but is retained for compatibility reasons.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>Set-VMNICSwitch (Select-VMNic $core) (Select-VMswitch $core.__server)</dev:code>
+											<dev:remarks>
+												<maml:para>Connects a NIC on the VM pointed to by $core, 
+If there are multiple NICs the user will prompted to select one,
+ and they will be prompted to select a switch if there is more than one.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									<command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>Select-VMNic $core | Set-VMNICSwitch  -virtualswitch (Select-VMswitch $core.__server)</dev:code>
+										<dev:remarks>
+											<maml:para>An alternative way of writing example 1.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>Get-VMNicSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>SelectVMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Select-VMExternalEthernet</command:name>
+										<maml:description>
+											<maml:para>Selects an avaialable host network Interface.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Select</command:verb>
+										<command:noun>VMExternalEthernet</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>When an external virtual network switch is created it needs to be told
+which network interface on the host computer it should be bound to. 
+If there is more than one available, a list is presented to allow the user to make a selection.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Select-VMExternalEthernet</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+												<maml:name>Server</maml:name>
+												<maml:description>
+													<maml:para>Specifies the Hyper-V server to query for network interfaces
+By default "." , the local computer is used.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"."</dev:defaultValue>
+											</command:parameter>
+										</command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										
+									<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server to query for network interfaces
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name>MsVM_ExternalEthernetPort</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The selected external ethernet port.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+										<maml:linkText>NewVMExternalSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+											<maml:linkText>MsVM_ExternalEthernetPort on MSDN </maml:linkText>
+											<maml:uri>http://msdn.microsoft.com/en-us/library/cc136838(VS.85).aspx</maml:uri>
+										</maml:navigationLink>
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>New-VMPrivateSwitch</command:name>
+										<maml:description>
+											<maml:para>Creates a virtual network switch, which isn't bound to a NIC in the parent partition.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>New</command:verb>
+										<command:noun>VMPrivateSwitch</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Creates a virtual network switch, which isn't bound to a NIC in the parent partition.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>New-VMPrivateSwitch</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+												<maml:name>VirtualSwitchName</maml:name>
+												<maml:description>
+													<maml:para>The  name for the new switch.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Ports</maml:name>
+									<maml:description>
+										<maml:para>The number of ports to be created on the new switch.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>1024</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+												<maml:name>Server</maml:name>
+												<maml:description>
+													<maml:para>Specifies the Hyper-V server to query for network interfaces
+By default "." , the local computer is used.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"."</dev:defaultValue>
+											</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+											<maml:name>VirtualSwitchName</maml:name>
+											<maml:description>
+												<maml:para>The  name for the new switch.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+											<dev:type>
+												<maml:name>String</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Ports</maml:name>
+										<maml:description>
+											<maml:para>The number of ports to be created on the new switch.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">INT</command:parameterValue>
+										<dev:type>
+											<maml:name>INT</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>1024</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server to query for network interfaces
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>New-VMPrivateSwitch "VM network" -server "HVCore"</dev:code>
+											<dev:remarks>
+												<maml:para>Creates a Switch on the server named "HVCore". 
+The network will not be accessible in the host OS, and will be named
+"VM Network" in the Hyper-V administration tools.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+											<maml:linkText>New-VMInternalSwitch</maml:linkText>
+											<maml:uri></maml:uri>
+										</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMExternalSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>CreateSwitch method of MsVM_VirtualSwitchManagementService on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136783(VS.85).aspx</maml:uri>
+									</maml:navigationLink>
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>New-VMInternalSwitch</command:name>
+										<maml:description>
+											<maml:para>Creates a virtual network switch, bound to a virtual NIC in the parent partition.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>New</command:verb>
+										<command:noun>VMInternalSwitch</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Creates a virtual network switch, and a virtual NIC in the parent partition,
+and binds them together.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>New-VMInternalSwitch</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+												<maml:name>VirtualSwitchName</maml:name>
+												<maml:description>
+													<maml:para>The  name for the new switch.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Ports</maml:name>
+									<maml:description>
+										<maml:para>The number of ports to be created on the new switch.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>1024</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+												<maml:name>Server</maml:name>
+												<maml:description>
+													<maml:para>Specifies the Hyper-V server to query for network interfaces
+By default "." , the local computer is used.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"."</dev:defaultValue>
+											</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+											<maml:name>VirtualSwitchName</maml:name>
+											<maml:description>
+												<maml:para>The  name for the new switch.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+											<dev:type>
+												<maml:name>String</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Ports</maml:name>
+										<maml:description>
+											<maml:para>The number of ports to be created on the new switch.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">INT</command:parameterValue>
+										<dev:type>
+											<maml:name>INT</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>1024</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server to query for network interfaces
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>New-VMInternalSwitch "Host and VM network"</dev:code>
+											<dev:remarks>
+												<maml:para>Creates a Switch and virtual NIC in the host. 
+The device name for the NIC in the host and 
+the Network name in Hyper-V will be "Host and VM Network".</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+										<maml:linkText>New-VMPrivateSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMExternalSwtich</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSwitchNIC</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>CreateSwitch method of MsVM_VirtualSwitchManagementService on MSDN </maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136783(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+											<maml:linkText>CreateInternalEthernetPortDynamicMac method of MsVM_VirtualSwitchManagementService on MSDN </maml:linkText>
+											<maml:uri>http://msdn.microsoft.com/en-us/library/cc443602(VS.85).aspx</maml:uri>
+										</maml:navigationLink>
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Remove-VMSwitch</command:name>
+										<maml:description>
+											<maml:para>Deletes a virtual network switch.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Remove</command:verb>
+										<command:noun>VMSwitch</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Deletes a virtual network switch.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Remove-VMSwitch</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+												<maml:name>virtualSwitch</maml:name>
+												<maml:description>
+													<maml:para>A string containing the  name for the  switch to be deleted,
+or a WMI object representing the switch.
+It may be passed via the pipe.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+												<maml:name>Server</maml:name>
+												<maml:description>
+													<maml:para>Specifies the Hyper-V server to query for virtual switches
+By default "." , the local computer is used.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"."</dev:defaultValue>
+											</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation
+ (unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name>Switch</maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+											<maml:name>VirtualSwitch</maml:name>
+											<maml:description>
+												<maml:para>A string containing the  name for the  switch to be deleted, 
+or a WMI object representing the switch
+It may be passed via the pipe.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server to query for virtual switches.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation (unless the $confirmPreference variable is set to "none".</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>Switch to remove.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+										<maml:linkText>New-VMPrivateSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMExternalSwtich</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMInternalSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+											<maml:linkText>DeleteSwitch method of MsVM_VirtualSwitchManagementService on MSDN </maml:linkText>
+											<maml:uri>http://msdn.microsoft.com/en-us/library/cc136789(VS.85).aspx</maml:uri>
+										</maml:navigationLink>
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>New-VMExternalSwitch</command:name>
+										<maml:description>
+											<maml:para>Creates a virtual network switch, bound to a physical network card.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>New</command:verb>
+										<command:noun>VMExternalSwitch</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Creates a virtual network switch, and binds it to a network card 
+which is available in the parent partition.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>New-VMExternalSwitch</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+												<maml:name>VirtualSwitchName</maml:name>
+												<maml:description>
+													<maml:para>The  name for the new switch.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="true" pipelineInput="false">
+									<maml:name>ExternalEthernet</maml:name>
+									<maml:description>
+										<maml:para>Either the name of a Network interface, passed as a string, 
+or a WMI object representing  an interface. 
+It may be passed via the pipe.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+									<maml:name>Ports</maml:name>
+									<maml:description>
+										<maml:para>The number of ports to be created on the new switch.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>1024</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+												<maml:name>Server</maml:name>
+												<maml:description>
+													<maml:para>Specifies the Hyper-V server where the switch should be created
+By default "." , the local computer is used.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"."</dev:defaultValue>
+											</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+											<maml:name>VirtualSwitchName</maml:name>
+											<maml:description>
+												<maml:para>The  name for the new switch.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+											<dev:type>
+												<maml:name>String</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>ExternalEthernet</maml:name>
+										<maml:description>
+											<maml:para>Either the name of a Network interface, passed as a string, 
+or a WMI object representing  an interface.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Ports</maml:name>
+										<maml:description>
+											<maml:para>The number of ports to be created on the new switch.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">INT</command:parameterValue>
+										<dev:type>
+											<maml:name>INT</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>1024</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server where the switch should be created
+By default "." , the local computer is used..</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE.
+ It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="5" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The network interface to bind to.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name>WMI</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>The newly created switch.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 -----</maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>Select-VMExternalEthernet |  New-VMExternalSwitch -VirtualSwitchName "Wired virtual Network"  </dev:code>
+											<dev:remarks>
+												<maml:para>Allows the user to choose if there are multiple available NICs and binds
+the selected one to a new switch. 
+The device name for the NIC in created in the host and the Network name in Hyper-V will be "Wired virtual Network".</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									<command:example>
+										<maml:title>----- Example 2 -----</maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>New-VMExternalSwitch -VirtualSwitchName "Wired virtual Network" 
+-ext "Broadcom" -Server Core</dev:code>
+										<dev:remarks>
+											<maml:para>Finds a Nic with a name beginning "Broadcom" on the server named "core", 
+and binds it to a new switch. 
+The device name for the NIC in created in the host and the Network name in Hyper-V will be "Wired virtual Network".</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+										<maml:linkText>New-VMPrivateSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>New-VMExternalSwtich</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Remove-VMSwitch</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+											<maml:linkText>SetupSwitch method of MsVM_VirtualSwitchManagementService on MSDN </maml:linkText>
+											<maml:uri>http://msdn.microsoft.com/en-us/library/cc136973(VS.85).aspx</maml:uri>
+										</maml:navigationLink>
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Get-VMByMACaddress</command:name>
+										<maml:description>
+											<maml:para>Discovers which VM owns a particular mac address.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Get</command:verb>
+										<command:noun>VMByMACaddress</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para></maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Get-VMByMACaddress</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+												<maml:name>Mac</maml:name>
+												<maml:description>
+													<maml:para>The MAC address to seek. The command uses regular expression matching,
+so  a partial address or regex can be used in the MAC field.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+												<maml:name>Server</maml:name>
+												<maml:description>
+													<maml:para>Specifies the Hyper-V server(s) to search for a matching NIC
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue>"."</dev:defaultValue>
+											</command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+											<maml:name>Mac</maml:name>
+											<maml:description>
+												<maml:para>The MAC address to seek. The command uses regular expression matching so 
+a partial address or regex can be used in the MAC field.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength="">string</command:parameterValue>
+											<dev:type>
+												<maml:name>string</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue></dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server(s) to search for a matching NIC
+By default "." , the local computer is used. 
+An array of server names by be passed but wildcards cannot be used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">String</command:parameterValue>
+										<dev:type>
+											<maml:name>String</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name>String</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>Mac address can be piped into  Get-VMByMACaddress.</maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name>Management object</maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para>the associated VM.</maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									</maml:alertSet>
+									<command:examples>
+										<command:example>
+											<maml:title>----- Example 1 ----- </maml:title>
+											<maml:introduction>
+												<maml:para></maml:para>
+											</maml:introduction>
+											<dev:code>Get-VMbymacAddress "00155D000101"</dev:code>
+											<dev:remarks>
+												<maml:para>Returns details of the VM with the NIC given the address 00155D000101.</maml:para>
+											</dev:remarks>
+											<command:commandLines>
+												<command:commandLine>
+													<command:commandText></command:commandText>
+												</command:commandLine>
+											</command:commandLines>
+										</command:example>
+									</command:examples>
+									<maml:relatedLinks>
+										
+									</maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>New-VMSwitchPort</command:name>
+										<maml:description>
+											<maml:para>Creates a new port on a virtual network switch.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>New</command:verb>
+										<command:noun>VMSwitchPort</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Creates a new port on a virtual network switch.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>New-VMSwitchPort</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+												<maml:name>VirtualSwitch </maml:name>
+												<maml:description>
+													<maml:para>Either the name of a Network switch, passed as a string, 
+or a WMI object representing  an interface. 
+It may be passed via the pipeline.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Name</maml:name>
+									<maml:description>
+										<maml:para>The identifier for the port, this is normally a GUID and will be created
+automatically if not passed as a parameter.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>[System.GUID]::NewGUID()</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+										<maml:name>Server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server to query for a network switch, if the switch is passed as a name.
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+										<maml:name>VirtualSwitch </maml:name>
+										<maml:description>
+											<maml:para>Either the name of a Network switch, passed as a string, 
+or a WMI object representing an interface. 
+It may be passed via the pipeline.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>Name</maml:name>
+										<maml:description>
+											<maml:para>The identifier for the port, this is normally a GUID and will be created
+automatically if not passed as a parameter.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>[System.GUID]::NewGUID()</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+											<maml:name>Server</maml:name>
+											<maml:description>
+												<maml:para>Specifies the Hyper-V server to query for a network switch, if the switch is passed as a name.
+By default "." , the local computer is used.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue>"."</dev:defaultValue>
+										</command:parameter>
+									</command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										<maml:alert>
+											<maml:para>This is intended to be called from other commands and not from the command line.</maml:para>
+										</maml:alert>
+									</maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>CreateSwitchPort Method of the MsVM_VirtualSwitchManagementService Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136782(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Remove-VMSwitchNIC</command:name>
+										<maml:description>
+											<maml:para>Removes the parent partition NIC associated with a Virtual switch.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Remove</command:verb>
+										<command:noun>VMSwitchNIC</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Removes the parent partition Network Interface Card associated with a Virtual switch. 
+A virtual NIC is always created in the parent partition for internal and external networks. In Hyper-V R2 there is an option to not allow a management partition to access the an external NIC used by VMs. The same result can be achieved by using remove-VMswitchNic.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Remove-VMSwitchNIC</maml:name>
+											<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+												<maml:name>Name</maml:name>
+												<maml:description>
+													<maml:para>The name of the NIC to be removed.</maml:para>
+												</maml:description>
+												<command:parameterValue required="false" variableLength=""></command:parameterValue>
+												<dev:type>
+													<maml:name></maml:name>
+													<maml:uri></maml:uri>
+													<maml:description>
+														<maml:para></maml:para>
+													</maml:description>
+												</dev:type>
+												<dev:defaultValue></dev:defaultValue>
+											</command:parameter>
+										<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>Server</maml:name>
+									<maml:description>
+										<maml:para>Specifies the Hyper-V server to query for the NIC .
+By default "." , the local computer is used.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>"."</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="4" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										<command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="false">
+											<maml:name>Name</maml:name>
+											<maml:description>
+												<maml:para>The name of the NIC to be removed.</maml:para>
+											</maml:description>
+											<command:parameterValue required="false" variableLength=""></command:parameterValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<dev:defaultValue>Name</dev:defaultValue>
+										</command:parameter>
+									<command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server to query for the NIC .
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.
+This command has a "ConfirmImpact" level of High: so the  default is to request confirmation 
+(unless the $confirmPreference variable is set to "none").</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										<maml:alert>
+											<maml:para>This is intended to be called from other commands, and not from the command line.</maml:para>
+										</maml:alert>
+									</maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										
+									<maml:navigationLink>
+										<maml:linkText>DeleteInternalEthernetPort Method of the MsVM_VirtualSwitchManagementService Class</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136787(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Get-VMLiveMigrationNetwork</command:name>
+										<maml:description>
+											<maml:para>Returns a list of Cluster networks in use for live migrating VMs.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Get</command:verb>
+										<command:noun>VMLiveMigrationNetwork</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Returns a list of Cluster networks in use for live migrating VMs.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Get-VMLiveMigrationNetwork</maml:name>
+											
+										<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+									<maml:name>Server</maml:name>
+									<maml:description>
+										<maml:para>Specifies the Hyper-V server / Cluster node to query.
+By default "." , the local computer is used.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>"."</dev:defaultValue>
+								</command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										
+									<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+										<maml:name>server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server / Cluster node to query.
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									<maml:alert>
+										<maml:para>This command depends on the Cluster PowerShell module being loaded.</maml:para>
+									</maml:alert></maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+											<maml:linkText>Select-VMLiveMigrationNetwork</maml:linkText>
+											<maml:uri></maml:uri>
+										</maml:navigationLink>
+									<maml:navigationLink>
+										<maml:linkText>Get-ClusterResourceType </maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-ClusterParameter </maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command>
+									<command:details>
+										<command:name>Select-VMLiveMigrationNetwork</command:name>
+										<maml:description>
+											<maml:para>Allows the user to select cluster networks to be used live migrating.</maml:para>
+										</maml:description>
+										<maml:copyright>
+											<maml:para>(c) Microsoft Corporation 2009.</maml:para>
+										</maml:copyright>
+										<command:verb>Select</command:verb>
+										<command:noun>VMLiveMigrationNetwork</command:noun>
+										<dev:version>2.00</dev:version>
+									</command:details>
+									<maml:description>
+										<maml:para>Shows a list of clusternetworks from which the user can choose the network(s) to be used for live migration.</maml:para>
+									</maml:description>
+									<command:syntax>
+										<command:syntaxItem>
+											<maml:name>Select-VMLiveMigrationNetwork</maml:name>
+											
+										<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+									<maml:name>Server</maml:name>
+									<maml:description>
+										<maml:para>Specifies the Hyper-V server / Cluster node to query.
+By default "." , the local computer is used.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue>"."</dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false"><maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc, with nested and recursive calls to the command.</maml:para></maml:description><dev:type><maml:name></maml:name></dev:type><dev:defaultValue></dev:defaultValue></command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false"><maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type><dev:defaultValue>False</dev:defaultValue></command:parameter></command:syntaxItem>
+									</command:syntax>
+									<command:parameters>
+										
+									<command:parameter globbing="false" variableLength="" position="0" required="false" pipelineInput="false">
+										<maml:name>server</maml:name>
+										<maml:description>
+											<maml:para>Specifies the Hyper-V server / Cluster node to query.
+By default "." , the local computer is used.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue>"."</dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters>
+									<command:inputTypes>
+										<command:inputType>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:inputType>
+									</command:inputTypes>
+									<command:returnValues>
+										<command:returnValue>
+											<dev:type>
+												<maml:name></maml:name>
+												<maml:uri></maml:uri>
+												<maml:description>
+													<maml:para></maml:para>
+												</maml:description>
+											</dev:type>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</command:returnValue>
+									</command:returnValues>
+									<maml:alertSet>
+										<maml:title></maml:title>
+										
+									<maml:alert>
+										<maml:para>This command depends on the Cluster PowerShell module being loaded.</maml:para>
+									</maml:alert></maml:alertSet>
+									<command:examples>
+										
+									</command:examples>
+									<maml:relatedLinks>
+										<maml:navigationLink>
+											<maml:linkText>Get-VMLiveMigrationNetwork</maml:linkText>
+											<maml:uri></maml:uri>
+										</maml:navigationLink>
+									<maml:navigationLink>
+										<maml:linkText>Get-ClusterNetwork</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>Get-ClusterResourceType </maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>set-ClusterParameter</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink></maml:relatedLinks>
+								</command:command><command:command><command:details><command:name>Get-VMNicVLAN</command:name><maml:description><maml:para>Gets the VLAN ID associated with a Network Interface Card.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Get</command:verb><command:noun>VMNicVLAN</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Gets the VLAN ID associated with a Network Interface Card.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>get-VMNicVLAN</maml:name><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+									<maml:name>NIC</maml:name>
+									<maml:description>
+										<maml:para>An object representing the NIC to query - may be passed via the pipeline.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+									<dev:type>
+										<maml:name>System.Management.ManagementObject</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+										<maml:name>NIC</maml:name>
+										<maml:description>
+											<maml:para>An object representing the NIC to query - may be passed via the pipeline.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+										<dev:type>
+											<maml:name>System.Management.ManagementObject</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para></maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples><command:example>
+										<maml:title>----- Example 1 ----- </maml:title>
+										<maml:introduction>
+											<maml:para></maml:para>
+										</maml:introduction>
+										<dev:code>get-VMnic | ForEach-Object{Add-Member -input $_ -MemberType noteproperty -Value $(Get-VMNICVLAN $_) -Name "VLAN" -PassThru}</dev:code>
+										<dev:remarks>
+											<maml:para>Gets all available NICs and adds the VLAN as a property of each.</maml:para>
+										</dev:remarks>
+										<command:commandLines>
+											<command:commandLine>
+												<command:commandText></command:commandText>
+											</command:commandLine>
+										</command:commandLines>
+									</command:example></command:examples><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Set-VMNicVLAN</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_BindsTo Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136819(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_NetworkElementSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136858(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command><command:command><command:details><command:name>Set-VMNicVLAN</command:name><maml:description><maml:para>Sets the VLAN ID associated with a Network Interface Card.</maml:para></maml:description><maml:copyright><maml:para>(c) Microsoft Corporation 2009.</maml:para></maml:copyright><command:verb>Set</command:verb><command:noun>VMNicVLAN</command:noun><dev:version>2.00</dev:version></command:details><maml:description><maml:para>Sets the VLAN ID associated with a Network Interface Card.</maml:para></maml:description><command:syntax><command:syntaxItem><maml:name>Set-VMNicVLAN</maml:name><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+									<maml:name>NIC</maml:name>
+									<maml:description>
+										<maml:para>An object representing the NIC to update, may be passed via the pipeline.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+									<dev:type>
+										<maml:name>System.Management.ManagementObject</maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+									<maml:name>VLANID</maml:name>
+									<maml:description>
+										<maml:para>The ID to Assign to the VLAN.</maml:para>
+									</maml:description>
+									<command:parameterValue required="false" variableLength=""></command:parameterValue>
+									<dev:type>
+										<maml:name></maml:name>
+										<maml:uri></maml:uri>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+									</dev:type>
+									<dev:defaultValue></dev:defaultValue>
+								</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:syntaxItem></command:syntax><command:parameters><command:parameter globbing="false" variableLength="" position="0" required="true" pipelineInput="true">
+										<maml:name>NIC</maml:name>
+										<maml:description>
+											<maml:para>An object representing the NIC to update, may be passed via the pipeline.</maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength="">System.Management.ManagementObject</command:parameterValue>
+										<dev:type>
+											<maml:name>System.Management.ManagementObject</maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="1" required="false" pipelineInput="false">
+										<maml:name>VLANID</maml:name>
+										<maml:description>
+											<maml:para></maml:para>
+										</maml:description>
+										<command:parameterValue required="false" variableLength=""></command:parameterValue>
+										<dev:type>
+											<maml:name></maml:name>
+											<maml:uri></maml:uri>
+											<maml:description>
+												<maml:para></maml:para>
+											</maml:description>
+										</dev:type>
+										<dev:defaultValue></dev:defaultValue>
+									</command:parameter><command:parameter globbing="false" variableLength="" position="2" required="false" pipelineInput="false">
+<maml:name>PSC</maml:name><maml:description><maml:para>THIS PARAMETER SHOULD NEVER BE PASSED FROM THE COMMAND LINE. 
+It is used to ensure correct handling of -WhatIf, -Confirm, -Verbose etc., with nested and recursive calls to the command.</maml:para></maml:description>
+</command:parameter><command:parameter globbing="false" variableLength="" position="3" required="false" pipelineInput="false">
+<maml:name>Force</maml:name><maml:description><maml:para>Ensures that the user is not prompted before the action is carried out.</maml:para></maml:description>
+<dev:type><maml:name></maml:name></dev:type>
+<dev:defaultValue>False</dev:defaultValue>
+</command:parameter></command:parameters><command:inputTypes><command:inputType><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para></maml:para></maml:description></command:inputType></command:inputTypes><command:returnValues><command:returnValue><dev:type><maml:name></maml:name><maml:uri></maml:uri><maml:description><maml:para></maml:para></maml:description></dev:type><maml:description><maml:para></maml:para></maml:description></command:returnValue></command:returnValues><maml:alertSet><maml:title></maml:title></maml:alertSet><command:examples/><maml:relatedLinks><maml:navigationLink>
+										<maml:linkText>Get-VMNicVLAN</maml:linkText>
+										<maml:uri></maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_BindsTo Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136819(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MsVM_NetworkElementSettingData Class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc136858(VS.85).aspx</maml:uri>
+									</maml:navigationLink><maml:navigationLink>
+										<maml:linkText>MSVM_hostedAccessPoint class on MSDN</maml:linkText>
+										<maml:uri>http://msdn.microsoft.com/en-us/library/cc542581(VS.85).aspx</maml:uri>
+									</maml:navigationLink></maml:relatedLinks></command:command></helpItems>

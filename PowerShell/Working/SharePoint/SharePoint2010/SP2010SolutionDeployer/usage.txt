@@ -1,0 +1,12 @@
+#Deploy solutions
+./solution.ps1 -solutionname test.wsp -Add $true
+./solution.ps1 -solutionname test.wsp -Remove $true
+./solution.ps1 -solutionname test.wsp -upgrade $true
+
+
+#Deploy & activate features
+./Feature.ps1 -FeatureId Test_Feature1 -SiteUrl http://win-d496ifm67d4 -Add 
+./Feature.ps1 -FeatureId Test_Feature1 -SiteUrl http://win-d496ifm67d4 -Remove
+./Feature.ps1 -FeatureId Test_Feature1 -SiteUrl http://win-d496ifm67d4 -Get
+
+

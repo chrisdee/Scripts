@@ -40,7 +40,7 @@ $TargetOU = "OU=Service Accounts,OU=TGF,DC=npe,DC=theglobalfund,DC=org"
 $domdns = (Get-ADDomain).dnsroot # for UPN generation
 
 # Specify the folder and CSV file to use
-$ImportFile = "C:\Boxbuild\Scripts\PowerShell\WIP\ADAccountsFromCSV.csv" #Change this directory to suit your environment
+$ImportFile = "C:\Boxbuild\Scripts\PowerShell\Working\SharePoint\SharePoint2010\SP2010CreateServiceAccounts\SP2010CreateServiceAccountsFromCSVTemplate.csv" #Change this directory to suit your environment
 
 # Check if the target OU is valid
 $ValidOU = Test-XADObject $TargetOU

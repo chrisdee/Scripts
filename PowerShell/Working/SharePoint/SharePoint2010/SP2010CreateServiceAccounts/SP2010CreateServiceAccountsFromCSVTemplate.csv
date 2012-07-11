@@ -1,0 +1,16 @@
+samaccountname,displayname,givenname,description,password
+spsspsetup,spsspsetup,spsspsetup,SharePoint 2010 Setup Account,PasswordHere
+spsspfarm,spsspfarm,spsspfarm,SharePoint 2010 Farm Account,PasswordHere
+spsspservice,spsspservice,spsspservice,SharePoint 2010 Service Account,PasswordHere
+spsportalapppool,spsportalapppool,spsportalapppool,SharePoint 2010 Portal App Pool Account,PasswordHere
+spsmysiteapppool,spsmysiteapppool,spsmysiteapppool,SharePoint 2010 MySite App Pool Account,PasswordHere
+spsentsearchservice,spsentsearchservice,spsentsearchservice,SharePoint 2010 Enterprise Search Service Account,PasswordHere
+spssuperuser,spssuperuser,spssuperuser,SharePoint 2010 SuperUser Object Cache User Account,PasswordHere
+spssuperreader,spssuperreader,spssuperreader,SharePoint 2010 SuperReader Object Cache User Account,PasswordHere
+spsupssynch,spsupssynch,spsupssynch,SharePoint 2010 User Profile Service Application Sync User Account,PasswordHere
+spsentsearchcontent,spsentsearchcontent,spsentsearchcontent,SharePoint 2010 Enterprise Search Service Content Access Account,PasswordHere
+spsexcelservice,spsexcelservice,spsexcelservice,SharePoint 2010 Excel Services Service Account,PasswordHere
+spsvisioservice,spsvisioservice,spsvisioservice,SharePoint 2010 Visio Graphics Service Account,PasswordHere
+spsperfpointservice,spsperfpointservice,spsperfpointservice,SharePoint 2010 Performance Point Service,PasswordHere
+spssecstoreservice,spssecstoreservice,spssecstoreservice,SharePoint 2010 Secure Store Service Account,PasswordHere
+spssqlservice,spssqlservice,spssqlservice,SharePoint 2010 SQL Server Service Account,PasswordHere

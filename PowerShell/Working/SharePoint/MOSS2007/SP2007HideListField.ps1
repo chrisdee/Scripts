@@ -21,4 +21,4 @@ function Hide-SPField([string]$url, [string]$List, [string]$Field) {
 
 #Example:
 
-Hide-SPField -url "http://moss/site" -List "My Custom List" -Field "UserField"
+#Hide-SPField -url "http://moss/site" -List "My Custom List" -Field "UserField"

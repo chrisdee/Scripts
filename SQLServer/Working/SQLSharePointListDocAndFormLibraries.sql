@@ -2,6 +2,24 @@
 -- Usage: Works on content databases for both MOSS 2007 and SharePoint Server 2010 Farms
 -- Edit "List URL" and "Template URL" to match your web application URL (keep '/' at the end)
 
+-- Common List Template Type Ids --
+-- 100 Generic list
+-- 101 Document library
+-- 102 Survey
+-- 103 Links list
+-- 104 Announcements list
+-- 105 Contacts list
+-- 106 Events list
+-- 107 Tasks list
+-- 108 Discussion board
+-- 109 Picture library
+-- 110 Data sources
+-- 111 Site template gallery
+-- 112 User Information list
+-- 113 Web Part gallery
+-- 114 List template gallery
+-- 115 XML Form library
+
 SELECT
 "Template Type" = CASE
 WHEN [Lists].[tp_ServerTemplate] = 101 THEN 'Doc Lib'

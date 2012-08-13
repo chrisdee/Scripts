@@ -4,7 +4,7 @@
 ## Usage Example: ./ProtocolStatusQuery.ps1 "\\ServerName\d$\Logs\IIS\*.log"
 
 $iisfiles = dir $args[0] #Variable for the IIS log files
-#The 2 variables make use of the LogParser COM Object
+#The 2 variables below make use of the LogParser COM Object
 $m = New-Object -comobject MSUtil.LogQuery
 $pif = New-Object -comobject MSUtil.LogQuery.IISW3CInputFormat
 

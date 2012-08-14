@@ -24,7 +24,9 @@ The log file is also written to the above directory and is called 'History.txt'
 
 Script File and Scheduled Task Name Example: Microsoft-Office365-Update-MSOLFederatedDomain-YOURDOMAIN.COM.ps1
 
-Resource: http://gallery.technet.microsoft.com/scriptcenter/Office-365-Federation-27410bdc
+Script Resource: http://gallery.technet.microsoft.com/scriptcenter/Office-365-Federation-27410bdc
+
+Support Resource: http://community.office365.com/en-us/wikis/sso/2062.aspx
 
 #>
 

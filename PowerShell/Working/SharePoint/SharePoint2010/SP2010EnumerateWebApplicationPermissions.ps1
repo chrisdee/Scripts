@@ -1,6 +1,8 @@
 ﻿## SharePoint Server 2010: PowerShell Script to Enumerate Permissions for each Web Application ##
 
-$logfilepath = "C:\"
+##Important: Script needs to be run with the Farm account or another account with sufficient farm administration rights
+
+$logfilepath = "C:\BoxBuild\Scripts\PowerShell" #Change this path to suit your environment
  
 ##Create Table - ScanTable
 $ScanTable = New-Object system.Data.DataTable "ScanTable"

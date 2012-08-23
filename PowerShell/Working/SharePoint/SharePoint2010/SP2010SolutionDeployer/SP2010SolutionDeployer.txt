@@ -1,1 +1,5 @@
-URL: http://blogs.msdn.com/b/aaronsaikovski/archive/2010/09/06/sharepoint-2010-solution-deployer-v1-1.aspx
+URLs: 
+
+http://blogs.msdn.com/b/aaronsaikovski/archive/2010/09/06/sharepoint-2010-solution-deployer-v1-1.aspx
+
+https://skydrive.live.com/?cid=17444de481aa42ac&id=17444DE481AA42AC!801#cid=17444DE481AA42AC&id=17444DE481AA42AC!537

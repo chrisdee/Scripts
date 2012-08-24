@@ -34,7 +34,8 @@ $UrlList = ("http://download.microsoft.com/download/C/9/F/C9F6B386-824B-4F9E-BD5
 			"http://download.microsoft.com/download/A/D/0/AD021EF1-9CBC-4D11-AB51-6A65019D4706/SQLSERVER2008_ASADOMD10.msi", # "http://go.microsoft.com/fwlink/?LinkID=160390&clcid=0x409" - Microsoft SQL Server 2008 Analysis Services ADOMD.NET
 			"http://download.microsoft.com/download/1/7/1/171CCDD6-420D-4635-867E-6799E99AB93F/ADONETDataServices_v15_CTP2_RuntimeOnly.exe", # "http://go.microsoft.com/fwlink/?LinkId=158354" - ADO.NET Data Services v1.5 CTP2 (Win2008 SP2)
 			"http://download.microsoft.com/download/B/8/6/B8617908-B777-4A86-A629-FFD1094990BD/iis7psprov_x64.msi", # http://go.microsoft.com/?linkid=9655704 - IIS management cmdlets
-			"http://download.microsoft.com/download/1/0/F/10F1C44B-6607-41ED-9E82-DF7003BFBC40/1033/x64/rsSharePoint.msi", # http://go.microsoft.com/fwlink/?LinkID=166379 - SQL 2008 R2 Reporting Services SharePoint 2010 Add-in
+			#"http://download.microsoft.com/download/1/0/F/10F1C44B-6607-41ED-9E82-DF7003BFBC40/1033/x64/rsSharePoint.msi", # http://go.microsoft.com/fwlink/?LinkID=166379 - SQL 2008 R2 Reporting Services SharePoint 2010 Add-in
+            "http://download.microsoft.com/download/1/0/F/10F1C44B-6607-41ED-9E82-DF7003BFBC40/rsSharePoint.msi", # http://www.microsoft.com/en-us/download/details.aspx?id=622 - SQL 2008 R2 Reporting Services SharePoint 2010 Add-in - 7/27/2012
 			"http://download.microsoft.com/download/8/D/F/8DFE3CE7-6424-4801-90C3-85879DE2B3DE/Platform/x64/SpeechPlatformRuntime.msi", # http://go.microsoft.com/fwlink/?LinkID=166378 - Microsoft Server Speech Platform Runtime
 			"http://download.microsoft.com/download/E/0/3/E033A120-73D0-4629-8AED-A1D728CB6E34/SR/MSSpeech_SR_en-US_TELE.msi" # http://go.microsoft.com/fwlink/?LinkID=166371 - Microsoft Server Speech Recognition Language - TELE(en-US)
 			)

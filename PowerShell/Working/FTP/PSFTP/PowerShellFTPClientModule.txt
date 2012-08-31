@@ -1,0 +1,13 @@
+URL: http://gallery.technet.microsoft.com/scriptcenter/PowerShell-FTP-Client-db6fe0cb
+
+Test FTP Server:
+
+-- Secure FTP Server Details --
+
+Type: FileZilla
+
+Address: ftp.secureftp-test.com
+
+Login: test
+
+Password: test

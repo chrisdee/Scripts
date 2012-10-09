@@ -1,7 +1,7 @@
 /* Query to look for all Master Pages, docs, css, etc. in a Web Application along with their Folder Paths and Site Names*/
 -- Usage: Work in MOSS 2007 / WSS 3.0 Farms, and some of these queries will work on SharePoint Server 2010 Farms
 -- Resources: http://www.codeproject.com/Articles/14232/Useful-SQL-Queries-to-Analyze-and-Monitor-SharePoi
-
+			
 set transaction isolation level read uncommitted
 SELECT AllDocs.Leafname AS 'FileName',
                  AllDocs.Dirname AS 'Folder Path',
@@ -106,12 +106,12 @@ WHEN [Lists].[tp_ServerTemplate] = 101 THEN 'Doc Lib'
 WHEN [Lists].[tp_ServerTemplate] = 115 THEN 'Form Lib'
 ELSE 'Unknown'
 END,
-"List URL" = 'http://intranet.theglobalfund.org/' + CASE -- Replace this with your web app url
+"List URL" = 'http://YourSharePointApp.com/' + CASE -- Replace this with your web app url
 WHEN [Webs].[FullUrl]=''
 THEN [Webs].[FullUrl] + [Lists].[tp_Title]
 ELSE [Webs].[FullUrl] + '/' + [Lists].[tp_Title]
 END,
-"Template URL" = 'http://intranet.theglobalfund.org/' + -- Replace this with your web app url
+"Template URL" = 'http://YourSharePointApp.com/' + -- Replace this with your web app url
 [Docs].[DirName] + '/' + [Docs].[LeafName]
 FROM [Lists] LEFT OUTER JOIN [Docs] ON [Lists].[tp_Template]=[Docs].[Id], [Webs]
 WHERE ([Lists].[tp_ServerTemplate] = 101 OR [Lists].[tp_ServerTemplate] = 115)
@@ -162,3 +162,23 @@ Docs.Type <> 1 AND (LeafName NOT LIKE '%.stp')
                AND (LeafName NOT LIKE '%.inf') 
                AND (LeafName NOT LIKE '%.css') 
                AND (LeafName <>'_webpartpage.htm')
+
+
+/* Query to list all documents according to the date they were created (TimeCreated) and last modified (TimeLastModified */
+
+SELECT Webs.FullUrl AS SiteUrl, Webs.Title AS [Title], DirName + '/' + LeafName AS [Document Name], Docs.TimeCreated, Docs.TimeLastModified
+FROM Docs INNER JOIN Webs On Docs.WebId = Webs.Id
+INNER JOIN Sites ON Webs.SiteId = Sites.Id
+WHERE Docs.Type <> 1
+AND (LeafName IS NOT NULL)
+AND (LeafName <> '')
+AND (LeafName NOT LIKE '%.stp')
+AND (LeafName NOT LIKE '%.aspx')
+AND (LeafName NOT LIKE '%.xfp')
+AND (LeafName NOT LIKE '%.dwp')
+AND (LeafName NOT LIKE '%template%')
+AND (LeafName NOT LIKE '%.inf')
+AND (LeafName NOT LIKE '%.css')
+AND (LeafName NOT LIKE '%.xml')
+ORDER BY Docs.TimeCreated DESC
+--ORDER BY Docs.TimeLastModified DESC

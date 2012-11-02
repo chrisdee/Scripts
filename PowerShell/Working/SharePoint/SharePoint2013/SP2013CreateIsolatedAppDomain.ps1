@@ -2,7 +2,10 @@
 
 <#
 
-Overview: The script below provisions and configures an Isolated App Domain for your on-premise farm
+Overview: The script below provisions your 'App Management Service' and 'Subscription Settings Service Application' service apps,
+and also configures an Isolated App Domain for your on-premise farm.
+
+Usage: Run the script and when prompted provide details for the following variables '$appdomain', $login (need a managed account for this).
 
 Important: You will also need to configure your DNS settings for the new App Domain as per the last resource link below
 

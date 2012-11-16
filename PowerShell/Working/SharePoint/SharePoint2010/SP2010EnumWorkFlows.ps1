@@ -5,7 +5,7 @@
 Overview: The script will return all Workflows currently associated within your SharePoint 2007 or SharePoint 2010 farm using PowerShell, and outputs it to a file.
 It returns the URL of the site, Title of the list, Title of the workflow, and the number of currently running instances.
 
-Environments: MOSS 2007 and SharePoint Server 2010 Farms
+Environments: MOSS 2007, SharePoint Server 2010 / 2013 Farms
 
 Resource: http://www.jeffholliday.com/2012/05/powershell-script-identify-all.html
 

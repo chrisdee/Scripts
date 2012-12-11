@@ -4,12 +4,12 @@
 # Author: Chris Dee
 # Version: 1.0
 # Date: 28/09/2011
-# Comment: PowerShell 2.0 script to
-# bulk create AD accounts from a csv file
-#
+# Comment: PowerShell 2.0 script to bulk create AD accounts from a csv file
+# Usage: Fill in the 'Template' CSV file and edit the following 2 variables to suit your environment: '$TargetOU'; '$ImportFile'
 # Resources: http://www.open-a-socket.com/index.php/2010/12/29/bulk-create-sample-ad-users-from-csv-file-using-powershell/
 #			 http://sites.wizdim.com/andersrask/powershell/creating-your-sharepoint-service-accounts-using-powershell-on-r2/
 #			 http://dotnetmafia.sys-con.com/node/1457593/mobile
+#
 ####################################################################################################################################
 
 # Function to test the existence of an AD object
@@ -34,7 +34,7 @@ function Test-XADObject() {
 Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 
 # Specify the target OU for new users (You can use the distinguishedName DN attribute to obtain this)
-$TargetOU = "OU=Service Accounts,OU=TGF,DC=npe,DC=theglobalfund,DC=org"
+$TargetOU = "CN=Managed Service Accounts,DC=devdom,DC=com"
 
 # Find the current domain info
 $domdns = (Get-ADDomain).dnsroot # for UPN generation

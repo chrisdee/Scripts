@@ -1,5 +1,5 @@
 /* Query to look for all Master Pages, docs, css, etc. in a Web Application along with their Folder Paths and Site Names*/
--- Usage: Work in MOSS 2007 / WSS 3.0 Farms, and some of these queries will work on SharePoint Server 2010 Farms
+-- Usage: Work in MOSS 2007 Farms, and some queries will work on SharePoint Server 2010 / 2013 Farms
 -- Resources: http://www.codeproject.com/Articles/14232/Useful-SQL-Queries-to-Analyze-and-Monitor-SharePoi
 			
 set transaction isolation level read uncommitted

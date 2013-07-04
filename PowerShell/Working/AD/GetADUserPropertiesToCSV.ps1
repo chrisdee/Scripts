@@ -4,6 +4,8 @@
 
 ## Usage: Change your '-Prop', '-Server', '-SearchBase' parameters to match your requirements and change the path under 'Export-CSV' to match your environment
 
+## Tip: By default the Export-CSV Cmdlet exports the CSV file in ASCII format. To change this to Unicode or UTF8 format use the Encoding parameter: -Encoding "Unicode"
+
 Import-Module ActiveDirectory -ErrorAction SilentlyContinue
 
 Get-ADUser -Filter * -Prop GivenName,Surname,SamAccountName,EmailAddress,Description,whenCreated,DistinguishedName -Server "ServerName.ext.YourDomain.com" -SearchBase "OU=External Users,DC=ext,DC=YourDomain,DC=com" |

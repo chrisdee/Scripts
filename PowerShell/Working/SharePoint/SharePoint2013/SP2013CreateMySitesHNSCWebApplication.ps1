@@ -18,8 +18,8 @@ Add-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue
 <# App Pool details (New-SPSite)
 #>
 $appPoolName = "SPMySiteAppPool"
-$appPoolUserName = "NPE\spprofilesapppool"
-$ownerAlias = "NPE\spprofilesapppool"
+$appPoolUserName = "DOMAIN\spprofilesapppool"
+$ownerAlias = "DOMAIN\spprofilesapppool"
 $ownerEmail = "spprofilesapppool@DOMAIN.com"
  
 <# Web App details  (New-SPWebApplication)-------------------------------------

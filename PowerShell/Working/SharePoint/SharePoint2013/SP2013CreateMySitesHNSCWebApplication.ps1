@@ -6,11 +6,14 @@ Overview: Sets up a SharePoint 2013 'My Sites' Web Application for hosting host-
 
 Resource: http://www.benjaminathawes.com/2013/12/11/using-host-named-site-collections-in-sharepoint-2013-with-mysites
 
-Usage: Change the following variables to match your requirements: $appPoolName; $appPoolUserName; $ownerAlias; $ownerEmail; $hostingMainURL; $webAppName; $contentDBName; $mysitehost
+Usage: Change the following variables to match your requirements: $appPoolName; $appPoolUserName; $ownerAlias; $ownerEmail; $hostingMainURL; $webAppName; $contentDBName; $mysitehost. '-HostHeader' parameter has been added to 'New-SPWebApplication' too
 
 Note: For Dev environments if you want to use port '80'; you will need to do the following under 'New-SPWebApplication': Change -Port 443 to 80; add a -HostHeader "mysites.yourdomain.com" parameter; comment out the '-SecureSocketsLayer' parameter
 
 Important: If using a -HostHeader parameter for Port 80 environments; this needs to be different to the property you set for your '$mysitehost ' variable. Also remember to go to the IIS web site and change the 'Host Name' binding to match the '$mysitehost ' variable
+
+Update: When running the script for Port 443 / SSL environments: to avoid error messages regarding Host headers and Ports already in use; the only work around appears to be through adding a  '-HostHeader' parameter to the 'New-SPWebApplication' commandlet. Example: -HostHeader "mysitewebapp.DOMAIN.com"
+
 #>
 
 Add-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue
@@ -25,7 +28,7 @@ $ownerEmail = "spprofilesapppool@DOMAIN.com"
 <# Web App details  (New-SPWebApplication)-------------------------------------
         Note that the Web App URL is HTTPS per SSL guidelines from Microsoft
 #>
-$hostingMainURL = "https://mysite"
+$hostingMainURL = "https://mysitewebapp.DOMAIN.com" #Ensure that you use a Fully Qualified Domain Name (FQDN) for your 'place holder' web application
 $webAppName = "MySite"
 $contentDBName = "DEV_Content_MySites"
  
@@ -45,7 +48,7 @@ $managedAccount = Get-SPManagedAccount $appPoolUserName
 $authenticationProvider = New-SPAuthenticationProvider
  
 write-host "Creating Web Application for host-named site collections at $hostingMainURL..."
-$webApp = New-SPWebApplication -ApplicationPool $appPoolName -ApplicationPoolAccount $managedAccount -Name $webAppName -Port 443 -AuthenticationProvider $authenticationProvider -DatabaseName $contentDBName -Url $hostingMainURL -SecureSocketsLayer
+$webApp = New-SPWebApplication -ApplicationPool $appPoolName -ApplicationPoolAccount $managedAccount -Name $webAppName -Port 443 -HostHeader "mysitewebapp.DOMAIN.com" -AuthenticationProvider $authenticationProvider -DatabaseName $contentDBName -Url $hostingMainURL -SecureSocketsLayer
  
 <# Sometimes, the New-SPSite cmdlet reports that a path-based site already exists if it is run immediately after creating the Web App, so sleep for a minute
 #>

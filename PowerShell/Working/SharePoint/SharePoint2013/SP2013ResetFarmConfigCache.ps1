@@ -1,4 +1,4 @@
-## SharePoint Server 2010: PowerShell Script To Reset The Config Cache On All Servers In A Farm ##
+## SharePoint Server 2013: PowerShell Script To Reset The Config Cache On All Servers In A Farm ##
 ## Resource: http://woutersdemos.codeplex.com/releases
 
 Add-PSSnapin Microsoft.SharePoint.PowerShell
@@ -11,7 +11,7 @@ Invoke-Command -ComputerName $Servers -ScriptBlock {
 try { 
 Write-Host "$env:COMPUTERNAME - Stopping timer service"
 Stop-Service SPTimerV4 
-$ConfigDbId = [Guid](Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Shared Tools\Web Server Extensions\14.0\Secure\ConfigDB' -Name Id).Id #Path to the '15 hive' ConfigDB in the registry
+$ConfigDbId = [Guid](Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Shared Tools\Web Server Extensions\15.0\Secure\ConfigDB' -Name Id).Id #Path to the '15 hive' ConfigDB in the registry
 $CacheFolder = Join-Path -Path ([Environment]::GetFolderPath("CommonApplicationData")) -ChildPath "Microsoft\SharePoint\Config\$ConfigDbId"
 Write-Host "$env:COMPUTERNAME - Clearing cache folder $CacheFolder"
 Get-ChildItem "$CacheFolder\*" -Filter *.xml | Remove-Item

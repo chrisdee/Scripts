@@ -14,6 +14,7 @@ Connect-MsolService -Credential $cred
 
 # Get-MsolSubscription
 # Get-MsolAccountSku
+# Get-MsolAccountSku | Where-Object {$_.SkuPartNumber -eq 'ENTERPRISEPACK'} | ForEach-Object {$_.ServiceStatus}
 # Get-MsolDomainFederationSettings
 # Get-MsolFederationProperty
 # Get-MSOLUser -DomainName YourDomainName.com

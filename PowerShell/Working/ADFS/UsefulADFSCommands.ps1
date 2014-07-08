@@ -1,6 +1,6 @@
 ﻿## ADFS Server: Useful Powershell Commandlets To Run On Your ADFS Server ##
 
-Add-PSSnapin “microsoft.adfs.powershell” -ErrorAction SilentlyContinue
+Add-PSSnapin "microsoft.adfs.powershell" -ErrorAction SilentlyContinue
 
 # Get ADFS Configuration Properties
 
@@ -18,3 +18,8 @@ Set-AdfsProperties -CertificateDuration 730 #Specify number of days
 # Update ADFS Self-Signed Certificates
 
 Update-AdfsCertificate -Urgent
+
+# Update Relying Party Trust Name
+
+$RelyingPartyTrust = "YourRelyingPartyTrustName"
+Set-ADFSRelyingPartyTrust -TargetName $RelyingPartyTrust -Name "YourNewRelyingPartyTrustName"

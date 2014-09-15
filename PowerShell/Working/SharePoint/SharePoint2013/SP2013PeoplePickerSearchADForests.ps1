@@ -1,9 +1,20 @@
-# SharePoint Server: PowerShell Functions to allow People Picker to select accounts across Domains
-# Environments: SharePoint Server 2010 / 2013 Farms
-# Usage Syntax: SetAppPassword <password>; PeoplePickerSearchADForests <url> "forest:<source forest>;domain:<trusted domain>"
-# Tip: If prompted to provide trust credentials; ensure that you put the domain prefix before your credentials
-# Resource: http://blog.hompus.nl/2011/01/17/configure-people-picker-over-a-one-way-trust-using-powershell
-# STSADM -o setapppassword -password <password>
+## SharePoint Server: PowerShell Functions to allow People Picker to select user accounts across trusted Domains ##
+
+<#
+
+Environments: SharePoint Server 2010 / 2013 Farms
+
+Usage: Edit the 'SetAppPassword' and 'PeoplePickerSearchADForests' functions parameters at the end of the script, and run this on each machine in your SharePoint Farm
+
+Usage Syntax: SetAppPassword <password>; PeoplePickerSearchADForests <url> "forest:<source forest>;domain:<trusted domain>"
+
+Tip: If prompted to provide trust credentials; ensure that you put the domain prefix before your credentials
+
+Resource: http://blog.hompus.nl/2011/01/17/configure-people-picker-over-a-one-way-trust-using-powershell
+
+STSADM -o setapppassword -password <password>
+
+#>
 
 Add-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue
 

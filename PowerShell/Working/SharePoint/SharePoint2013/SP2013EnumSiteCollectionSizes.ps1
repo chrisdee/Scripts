@@ -16,4 +16,4 @@ Add-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue
 
 $FilePath = "C:\BoxBuild\Scripts\SPContentDatabases.csv" #Change this file path to match your environment
 
-$all="Content Database,Site URL,Size`r`n";Get-SPContentDatabase | %{foreach($site in $_.Sites){$url=$site.url;$size=[System.Math]::Round([int]$site.Usage.Storage/1MB,2); $output="$($_.Name),$($url),$($size)MB`r`n";$all+=$output}}; $all | out-file $FilePath -force  -Encoding default
+$all="Content Database,Site URL,Size`r`n";Get-SPContentDatabase | %{foreach($site in $_.Sites){$url=$site.url;$size=[System.Math]::Round([int64]$site.Usage.Storage/1MB,2); $output="$($_.Name),$($url),$($size)MB`r`n";$all+=$output}}; $all | out-file $FilePath -force  -Encoding default

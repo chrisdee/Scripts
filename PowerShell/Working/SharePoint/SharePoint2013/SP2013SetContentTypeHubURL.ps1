@@ -7,6 +7,6 @@
 Add-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue
 
 $ServiceApplicationName = "Managed Metadata Service" #Change this to match your environment
-$ContentTypeHub = "https://contenttypehub.npe.theglobalfund.org" #Change this to the path of your Content Type Hub
+$ContentTypeHub = "https://contenttypehub.yourdomain.com" #Change this to the path of your Content Type Hub
 
 Set-SPMetadataServiceApplication -Identity $ServiceApplicationName -HubURI $ContentTypeHub

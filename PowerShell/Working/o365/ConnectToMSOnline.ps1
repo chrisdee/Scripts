@@ -20,3 +20,4 @@ Connect-MsolService -Credential $cred
 # Get-MSOLUser -DomainName YourDomainName.com
 # Get-MsolUser –UserPrincipalName UserName@YourDomain.onmicrosoft.com | fl 
 # Set-MsolUser –UserPrincipalName UserName@YourDomain.onmicrosoft.com -PasswordNeverExpires $True
+# Get-MsolCompanyInformation | fl LastDirSyncTime

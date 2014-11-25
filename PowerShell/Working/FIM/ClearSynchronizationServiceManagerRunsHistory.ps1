@@ -19,6 +19,9 @@ C:\Program Files\Microsoft Office Servers\15.0\Synchronization Service\UIShell\m
 .Microsoft Online Directory Sync
 C:\Program Files\Microsoft Online Directory Sync\SYNCBUS\Synchronization Service\UIShell\miisclient.exe
 
+.Windows Azure Active Directory Sync Tool
+C:\Program Files\Windows Azure Active Directory Sync\SYNCBUS\Synchronization Service\UIShell\miisclient.exe
+
 .USAGE EXAMPLE 
 
 PS> Clear-FIMRunHistory 30 

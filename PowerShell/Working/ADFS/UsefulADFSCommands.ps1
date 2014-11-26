@@ -19,7 +19,17 @@ Set-AdfsProperties -CertificateDuration 730 #Specify number of days
 
 Update-AdfsCertificate -Urgent
 
+# Get Relying Party Trust Properties
+
+$RelyingPartyTrust = "YourRelyingPartyTrustName"
+Get-ADFSRelyingPartyTrust -Name $RelyingPartyTrust
+
 # Update Relying Party Trust Name
 
 $RelyingPartyTrust = "YourRelyingPartyTrustName"
 Set-ADFSRelyingPartyTrust -TargetName $RelyingPartyTrust -Name "YourNewRelyingPartyTrustName"
+
+# Update Relying Party Trust Signing Certificate Revocation Check from 'CheckChainExcludeRoot' to 'None'
+
+$RelyingPartyTrust = "YourRelyingPartyTrustName"
+Set-ADFSRelyingPartyTrust -TargetName $RelyingPartyTrust -SigningCertificateRevocationCheck "None"

@@ -29,7 +29,12 @@ Get-ADFSRelyingPartyTrust -Name $RelyingPartyTrust
 $RelyingPartyTrust = "YourRelyingPartyTrustName"
 Set-ADFSRelyingPartyTrust -TargetName $RelyingPartyTrust -Name "YourNewRelyingPartyTrustName"
 
-# Update Relying Party Trust Signing Certificate Revocation Check from 'CheckChainExcludeRoot' to 'None'
+# Update Relying Party Trust Signing Certificate Revocation Check from 'CheckChainExcludeRoot' (default) to 'None'
 
 $RelyingPartyTrust = "YourRelyingPartyTrustName"
 Set-ADFSRelyingPartyTrust -TargetName $RelyingPartyTrust -SigningCertificateRevocationCheck "None"
+
+# Update Relying Party Trust Signature Algorithm from 'SHA-256' (default) to 'SHA-1'
+
+$RelyingPartyTrust = "YourRelyingPartyTrustName"
+Set-ADFSRelyingPartyTrust -TargetName $RelyingPartyTrust -SignatureAlgorithm "http://www.w3.org/2000/09/xmldsig#rsa-sha1"

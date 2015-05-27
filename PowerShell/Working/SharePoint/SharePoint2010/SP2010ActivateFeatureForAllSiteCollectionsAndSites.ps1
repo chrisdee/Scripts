@@ -19,6 +19,7 @@ http://www.spsdemo.com/Lists/Features/All%20SharePoint%20Features.aspx
 Add-PSSnapin "Microsoft.SharePoint.PowerShell"
 
 ### Start Variables ###
+$SPWebApplication = "https://YourWebApp.com"
 $SPFeatureID = "00bfea71-7e6d-4186-9ba8-c047ac750105"
 ### End Variables ###
 

@@ -14,7 +14,7 @@ Usage: Edit the variables below to suit your requirements and run the script. If
 $ReportLastRun = Get-Date -format 'f' #Change the date format to suite your requirements
 $SitesFilePath = "C:\BoxBuild\Scripts\URLList.txt" #Change the path to the Site Collections list text file to match your environment
 $ReportFilePath = "C:\BoxBuild\Scripts\SPSiteAvailabilityMonitor.htm" #Change the path to the Sites Availability Monitor HTML report
-$SPWebApplication = "https://insidewebapp.theglobalfund.org" #Provide your Web Application URL here
+$SPWebApplication = "https://YourWebApp.com" #Provide your Web Application URL here
 ######################## End Variables ########################
 
 ## Get a list of all Site Collections

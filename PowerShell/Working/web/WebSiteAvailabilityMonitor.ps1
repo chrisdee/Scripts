@@ -1,11 +1,12 @@
-############################################################################## 
+###############################################################################################
 ## 
-## Website Availability Monitoring 
+## Website Availability Monitoring With PowerShell
 ## Created by Sravan Kumar S  
 ## Date : 25 Apr 2013 
 ## Version : 1.0 
-## Email: sravankumar.s@outlook.com   
-############################################################################## 
+## Email: sravankumar.s@outlook.com
+## Resource: https://gallery.technet.microsoft.com/scriptcenter/Powershell-Script-for-13a551b3
+##############################################################################################
  
  
 ## The URI list to test 

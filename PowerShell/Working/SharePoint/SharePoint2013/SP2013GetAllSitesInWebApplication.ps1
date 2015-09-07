@@ -15,7 +15,7 @@ Resource: http://iedaddy.com/2011/11/sharepoint-information-architecture-diagram
 #>
 
 ### Start Variables ###
-$WebApplication = "https://insidewebapp.theglobalfund.org"
+$WebApplication = "https://yourwebapp.yourorganisation.com"
 $ReportPath = "C:\BoxBuild\Scripts\SPSitesReport.csv"
 ### End Variables ###
 

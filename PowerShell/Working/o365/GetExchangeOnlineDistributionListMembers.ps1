@@ -14,6 +14,7 @@ Import-PSSession $(New-PSSession -ConfigurationName Microsoft.Exchange -Connecti
         [PSCustomObject]@{
             DistributionGroup = $DistributionGroupName
             MemberName = $_.Name
+	    EmailAddress =$_.primarysmtpaddress
             #Other recipientproperties here
         }
     }

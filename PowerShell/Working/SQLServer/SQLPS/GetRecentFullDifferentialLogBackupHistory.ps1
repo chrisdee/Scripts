@@ -1,12 +1,12 @@
-﻿## PowerShell: ##
+﻿## PowerShell: Script that uses SQL Server PowerShell Module (SQLPS) Query to Get Recent Full / Differential / Log Backup History from SQL Instances ##
 
 <#
 
-Overview:
+Overview: Script that uses SQL Server PowerShell Module (SQLPS) Query (Invoke-Sqlcmd) to Get Recent Full / Differential / Log Backup History from SQL Instances provided in a text file
 
 Requires: SQL Server PowerShell Module (SQLPS) on remote clients
 
-Usage: Replace the 
+Usage: Edit the variables in the variables section and save a text file with the SQL Instances you want to query in the location you set in the '$SQLServers' variable, and run the script
 
 Resources: http://www.sqlevo.com/2015/10/sql-database-backup-reports-with.html; http://guidestomicrosoft.com/2015/01/13/install-sql-server-powershell-module-sqlps
 
@@ -14,15 +14,18 @@ Resources: http://www.sqlevo.com/2015/10/sql-database-backup-reports-with.html; 
 #>
 
 ### Start Variables ###
+
 ## Global Variables
-$SQLServers = "C:\ztemp\Scripts\SQLServers.txt"
-$HTMLReport = "C:\ztemp\Scripts\SQLServersBackupReport.html"
-$DaysSinceLastFullThreshold = "1"
+$SQLServers = "C:\BoxBuild\Scripts\SQLServers.txt"
+$HTMLReport = "C:\BoxBuild\Scripts\SQLServersBackupReport.html"
+$DaysSinceLastFullThreshold = "1" #Change this value to set a threshhold for an 'alert' on how many days since the last Full backup
+
 ## Email Variables
-$MailTo = "christopher.dee@theglobalfund.org"
-$MailFrom = "SQLBackupReports@theglobalfund.org"
+$MailTo = "mailto@yourdomain.com"
+$MailFrom = "SQLBackupReports@yourdomain.com"
 $MailSubject = "SQL Backup Report"
-$MailServer = "appmail.theglobalfund.org"
+$MailServer = "smtpmail.yourdomain.com"
+
 ### End Variables #### 
 
 #Setup HTML

@@ -1,17 +1,21 @@
-/* ServiceNow: Script to Merge Duplicate User Records
+/* ServiceNow: Script to Populate Variable Parameters in Incident Forms Raised by Record Producers
 
 Run Location: Record Producers --> What it will contain
 
 Builds Tested On: Eureka
 
-Usage: 
+Usage: Add the script to the 'Script' section under 'What it will contain' in a Record Producer. Modify / Add the variables to be populated on the Incident Record to suite your requirements
 
 Reference: http://www.servicenowguru.com/scripting/adding-redirect-message-record-producer
 
-Tip:
+Tips: 
 
+You can add the value of anything from the generated record to the message by accessing the ‘current’ record object followed by the name of the field you want to access (current.short_description, current.number, etc.)
+
+You can add the value of any record producer variable to the message by accessing the ‘producer’ object followed by the name of the variable you want to access (producer.var1, producer.var2, etc)
 
 */
+
 
 //Get the values of the Record Producer variables to populate the generated Incident record
 var notes = "New Consultant Request Form Submitted";

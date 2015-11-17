@@ -6,6 +6,12 @@ Add-PSSnapin "microsoft.adfs.powershell" -ErrorAction SilentlyContinue
 
 Get-ADFSProperties
 
+# Get ADFS Relying Party Trust
+
+Get-ADFSRelyingPartyTrust
+
+Get-ADFSRelyingPartyTrust | select Name, Identifier
+
 # Enable or Disable Auto Certificate Rollover
 
 Set-ADFSProperties -AutoCertificateRollover $true

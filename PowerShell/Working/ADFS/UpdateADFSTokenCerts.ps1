@@ -16,7 +16,15 @@ Get-ADFSCertificate –CertificateType token-signing #Just using 'Get-ADFSCertif
 
 #To generate a new certificate, execute the following command to renew and update the certificates on the AD FS server.
 
-Update-ADFSCertificate
+Update-ADFSCertificate #Updates the Token-signing and Token-decrypting certs
+
+Update-ADFSCertificate -CertificateType Token-Signing #Updates only the Token-signing cert
+
+Update-AdfsCertificate -CertificateType Token-Decrypting #Updates only the Token-decrypting cert
+
+Update-ADFSCertificate -CertificateType Token-Signing -Urgent #Updates the Token-signing cert and sets it as the 'Primary' cert
+
+Update-ADFSCertificate -CertificateType Token-Decrypting -Urgent #Updates the Token-decrypting cert and sets it as the 'Primary' cert
 
 #Verify the update by re-executing the following command:
 

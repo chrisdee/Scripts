@@ -7,3 +7,5 @@
 Import-Module Dirsync
 
 Start-OnlineCoexistenceSync
+
+#Start-OnlineCoexistenceSync -FullSync #Use the '-FullSync' parameter to trigger a full sync

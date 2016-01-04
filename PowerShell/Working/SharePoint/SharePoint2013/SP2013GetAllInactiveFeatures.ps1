@@ -16,6 +16,8 @@ http://sharepoint.stackexchange.com/questions/76245/powershell-command-to-find-a
 
 #>
 
+Add-PSSnapin "Microsoft.SharePoint.PowerShell"
+
 $siteFeatures = Get-SPFeature | Where-Object {$_.Scope -eq "Site" } # Farm, WebApp, Site and Web
 if ($siteFeatures -ne $null)
 {

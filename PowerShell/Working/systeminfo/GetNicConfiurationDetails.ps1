@@ -1,3 +1,5 @@
+## NIC Configuration: PowerShell Script to Get System NIC Configuration Details ##
+
 [cmdletbinding()]
 param (
  [parameter(ValueFromPipeline=$true,ValueFromPipelineByPropertyName=$true)]

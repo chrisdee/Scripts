@@ -2,6 +2,8 @@
 
 ## Resource: http://blog.kloud.com.au/2015/08/05/azure-active-directory-connect-export-profile-error-stopped-server-down
 
+## AAD Connect Commandlets: https://mikecrowley.wordpress.com/2015/10/11/azure-ad-connect-powershell-cmdlets
+
 #Import the Azure AD Connect Sync module
 
 Import-Module ADSync

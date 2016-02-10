@@ -13,3 +13,7 @@ Import-Module ADSync
 Disable-ADSyncExportDeletionThreshold
 
 #Enable-ADSyncExportDeletionThreshold
+
+#Confirm the status of the 'ADSyncExportDeletionThreshold' property
+
+Get-ADSyncExportDeletionThreshold

@@ -1,4 +1,6 @@
-﻿## Powercli - http://communities.vmware.com/community/vmtn/server/vsphere/automationtools/powercli
+﻿## VMWare Server: PowerShell Script to deploy Patches / Updates to ESXi Host Servers ##
+
+## Powercli - http://communities.vmware.com/community/vmtn/server/vsphere/automationtools/powercli
 
 ## VMware vSphere CLI - http://communities.vmware.com/community/vmtn/server/vsphere/automationtools/vsphere_cli
 

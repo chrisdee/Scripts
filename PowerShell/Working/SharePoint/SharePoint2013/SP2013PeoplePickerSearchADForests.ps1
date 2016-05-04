@@ -14,6 +14,14 @@ Resource: http://blog.hompus.nl/2011/01/17/configure-people-picker-over-a-one-wa
 
 STSADM -o setapppassword -password <password>
 
+Trouble-shooting:
+
+In the windows application event log you encounter the following error message: 'An exception occurred in AD claim provider when calling SPClaimProvider.FillSearch(): Requested registry access is not allowed..'
+
+Your Web Application Pool Account needs read access to the following Registry Key: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\Web Server Extensions\15.0\Secure
+
+** Your Web Applications app pool accounts should normally be members of the 'WSS_WPG' group; so add this with read access to the registry key
+
 #>
 
 Add-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue

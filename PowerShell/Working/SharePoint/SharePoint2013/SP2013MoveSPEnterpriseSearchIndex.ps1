@@ -10,6 +10,8 @@ Usage: Provide the following parameters and run this script on each Machine you 
 
 Usage Example: Move-SPEnterpriseSearchIndex -SearchServiceName "Search Service Application" -Server "SP2013-WFE" -IndexLocation "C:\Index"
 
+Note: You might need to reboot your machines where the Search Service Application is configured on after making the changes
+
 Resources: https://gallery.technet.microsoft.com/office/Move-SharePoint-2013-242869e2; http://consulting.risualblogs.com/blog/2013/09/03/sharepoint-2013move-the-search-index-location
 
 #>

@@ -38,7 +38,7 @@ $HTML += "<HTML><BODY><Table border=1 cellpadding=0 cellspacing=0 width=100% id=
 [System.Reflection.Assembly]::LoadWithPartialName('Microsoft.SqlServer.SMO') | out-null 
 ForEach ($ServerName in $ServerList) 
 { 
-    $HTML += "<TR bgColor='#ccff66'><TD colspan=5 align=center><B>$ServerName</B></TD></TR>" 
+    $HTML += "<TR bgColor='#ccff66'><TD colspan=5 align=left><B>$ServerName</B></TD></TR>" 
      
     $SQLServer = New-Object ('Microsoft.SqlServer.Management.Smo.Server') $ServerName  
     Foreach($Database in $SQLServer.Databases) 

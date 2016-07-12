@@ -1,6 +1,9 @@
 ﻿## Exchange Online: PowerShell Script to Get User Account Details ##
 
-$Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell/ -Credential $LiveCred -Authentication Basic –AllowRedirection
+$ExchangeCredential= Get-Credential
+
+$Session=New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell/ -Credential $LiveCred -Authentication Basic –AllowRedirection
+
 Import-PSSession $Session
 
 #Getting a Full List of the User details

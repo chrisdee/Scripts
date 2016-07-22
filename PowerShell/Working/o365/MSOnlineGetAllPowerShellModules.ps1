@@ -45,7 +45,9 @@
 	# last modified   : 2016-03-19
 	#################################################
 
-Usage Example: 
+Usage Example: Get-PreReqModules -Path "C:\BoxBuild\o365"
+
+Resource: https://github.com/jhochwald/MyPowerShellStuff/blob/master/Modules/ToolBox/Public/Get-PreReqModules.ps1
 
 #>
 

@@ -1,4 +1,6 @@
-﻿<#
+﻿## Active Directory: PowerShell Script to Report on Expiring User Accounts in AD ##
+
+<#
 .SYNOPSIS
 	Script to report expiring user account
 .DESCRIPTION
@@ -35,13 +37,13 @@ PARAM (
 	[Alias("ExpirationDays")]
 	[Int]$Days = "10",
 	
-	[String]$SearchBase = "OU=Employees,OU=Users,OU=TGF,DC=gf,DC=theglobalfund,DC=org",
+	[String]$SearchBase = "OU=Sales, DC=CONTOSO, DC=COM", #Change this to match your environment
 	
-	[string]$EmailFrom = "ScriptServer@Contoso.com",
+	[string]$EmailFrom = "YourFromAddress@Contoso.com", #Change this to match your environment
 	
-	[string]$EmailTo = "christopher.dee@theglobalfund.org",
+	[string]$EmailTo = "YourToAddress@Contoso.com", #Change this to match your environment
 	
-	[String]$EmailSMTPServer = "appmail.theglobalfund.org"
+	[String]$EmailSMTPServer = "SMTPEmail@Contoso.com" #Change this to match your environment
 )
 BEGIN
 {

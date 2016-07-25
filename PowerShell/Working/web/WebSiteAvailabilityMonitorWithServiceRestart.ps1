@@ -2,7 +2,7 @@
 
 ## Overview: PowerShell: Script that checks a Content String on a Web Site and Restarts a Specified Service if Not Matched. Includes HTML email functionality
 
-## Usage: Edit the variables below and test in your environment
+## Usage: Edit the variables below and test in your environment prior to setting up to run as a scheduled task
 
 #Initialising
 $webClient = new-object System.Net.WebClient

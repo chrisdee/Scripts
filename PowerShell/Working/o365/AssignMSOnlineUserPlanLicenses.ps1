@@ -1,4 +1,4 @@
-﻿## MS Online: PowerShell Script To Assign Service Plan Licenses To Office 365 Users ##
+﻿## MSOnline: PowerShell Script To Assign Service Plan Licenses To Office 365 Users From a CSV File (o365) ##
 
 ## Resources: http://exitcodezero.wordpress.com/2013/03/14/how-to-assign-selective-office-365-license-options/comment-page-1; http://social.technet.microsoft.com/wiki/contents/articles/11349.office-365-license-users-for-office-365-workloads.aspx
 

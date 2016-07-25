@@ -19,7 +19,7 @@ http://www.morgantechspace.com/2014/05/Add-AD-Group-Members-using-Powershell-Scr
 Import-Module "ActiveDirectory"
 
 ### Start Variables ###
-$GroupName = 'zzTestGroup' #Provide your AD Group Name here
+$GroupName = "zzTestGroup" #Provide your AD Group Name here
 $CurrentMembers = "C:\BoxBuild\Scripts\zzTestGroup_Current.csv" #Provide the path to the file for a report on the Current group members
 $NewMembers = "C:\BoxBuild\Scripts\zzTestGroup_New.csv" #Provide the path to the file of new / edited group members
 $AddedMembers = "C:\BoxBuild\Scripts\zzTestGroup_Added.csv" #Provide the path to the file for a report on the New group members

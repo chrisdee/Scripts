@@ -1,3 +1,7 @@
-﻿## IIS Server: Get Application Pool User Names (Identity) and Passwords ##
+﻿## IIS Server: Get Application Pool User Name (Identity) and Password Using appcmd ##
 
-Get-CimInstance -Namespace root/MicrosoftIISv2 -ClassName IIsApplicationPoolSetting -Property Name, WAMUserName, WAMUserPass | Select Name, WAMUserName, WAMUserPass
+$AppPoolName = "YourAppPoolName" #Provide your application pool name here
+
+cd "C:\Windows\System32\inetsrv"
+
+./appcmd.exe list apppool "$AppPoolName" /text:*

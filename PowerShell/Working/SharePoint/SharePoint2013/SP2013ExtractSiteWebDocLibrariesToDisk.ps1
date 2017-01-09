@@ -1,4 +1,4 @@
-﻿## SharePoint Server: PowerShell Script to Download All Document Libraries from a Site Collection or Site (web) ##
+﻿## SharePoint Server: PowerShell Script to Download All Document Libraries from a Site Collection or Sub Site (web) ##
 
 <#
 

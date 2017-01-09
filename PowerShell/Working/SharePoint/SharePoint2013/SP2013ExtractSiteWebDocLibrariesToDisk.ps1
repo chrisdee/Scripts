@@ -4,7 +4,7 @@
 
 Overview: PowerShell Function that downloads all files from all libraries at Site Collection or Web level. Also includes logging in the same directory specified in the Output Location
 
-Environments: SharePoint Server 2013 + Farns
+Environments: SharePoint Server 2013 + Farms
 
 Usage: Run the script and when prompted provide the details for the '$exportPath' and '$URL' variables, or run the script like the example below passing the parameters
 

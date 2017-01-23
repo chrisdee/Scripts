@@ -13,7 +13,7 @@ Add-AzureAccount
 
 ## Dependencies: Windows Management Framework 5.0 | http://www.microsoft.com/en-us/download/details.aspx?id=48729
 
-Import-AzureRM
+Import-Module AzureRM
 
 Login-AzureRmAccount
 

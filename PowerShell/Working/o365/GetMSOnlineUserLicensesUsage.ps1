@@ -1,3 +1,5 @@
+## MSOnline: PowerShell Script To Connect To MS Online (o365) And Get A CSV Report On User License Usage Across Your Tenant ##
+
 ######## 
 #LicReport365 v0.5 
 #Copyright:     Free to use, please leave this header intact 
@@ -25,7 +27,7 @@ Param()
  
 $o365login     = $Null           #Username of O365 Admin, will prompt if left empty 
 $o365pw        = $Null           #Password of O365 Admin, will prompt if left empty 
-$report_folder = "C:\BoxBuild\Scripts\TGFMSOnlineLicenses\"      #don't forget the trailing \ 
+$report_folder = "C:\BoxBuild\Scripts\MSOnlineLicenses\"      #don't forget the trailing \ 
 $delimiter     = $Null           #CSV column delimiter, uses your local settings if not configured 
 $version       = "v0.5" 
 $report_file   = Join-Path -path $report_folder -childpath "LicReport365_$($version)_$(Get-Date -format dd_MM_yyyy).csv" 

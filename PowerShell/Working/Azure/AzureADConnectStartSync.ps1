@@ -13,8 +13,20 @@ $ADSyncClient = "C:\Program Files\Microsoft Azure AD Sync\UIShell\miisclient.exe
 ## Changes directory path to the AAD Connect application 'Bin'
 cd $ADSyncLocation
 
-## Trigegrs the 'initial' or 'delta' Sync process
+## Triggers the 'initial' or 'delta' Sync process
 .\DirectorySyncClientCmd.exe $ADSyncType
 
 ## Launches the AAD Connect Client (miisclient.exe)
 Invoke-Item $ADSyncClient
+
+## Azure AD Connect sync: Scheduler for builds 1.1.105.0+ (February 2016) ##
+
+## Note: You no longer have to import the Azure AD Sync PowerShell Module
+
+## Resource: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler
+
+Start-ADSyncSyncCycle -PolicyType Delta #Triggers the 'delta' Sync process
+#Start-ADSyncSyncCycle -PolicyType Initial #Triggers the 'full' Sync process
+
+## Get the Ad Sync Scheduler Settings
+Get-ADSyncScheduler

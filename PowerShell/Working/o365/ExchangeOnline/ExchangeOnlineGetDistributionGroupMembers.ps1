@@ -52,7 +52,7 @@ $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri ht
 Import-PSSession $Session -AllowClobber | Out-Null           
   
 #Prepare Output file with headers  
-Out-File -FilePath $OutputFile -InputObject "Distribution Group DisplayName,Distribution Group Email,Member DisplayName, Member Email, Member Type" -Encoding UTF8  
+Out-File -FilePath $OutputFile -InputObject "Distribution Group DisplayName,Distribution Group Email,Member DisplayName,Member Email,Member Type,Member Count" -Encoding UTF8  
   
 #Get all Distribution Groups from Office 365  
 $objDistributionGroups = Get-DistributionGroup -ResultSize Unlimited  
@@ -71,8 +71,8 @@ Foreach ($objDistributionGroup in $objDistributionGroups)
     #Iterate through each member  
     Foreach ($objMember in $objDGMembers)  
     {  
-        Out-File -FilePath $OutputFile -InputObject "$($objDistributionGroup.DisplayName),$($objDistributionGroup.PrimarySMTPAddress),$($objMember.DisplayName),$($objMember.PrimarySMTPAddress),$($objMember.RecipientType)" -Encoding UTF8 -append  
-        write-host "`t$($objDistributionGroup.DisplayName),$($objDistributionGroup.PrimarySMTPAddress),$($objMember.DisplayName),$($objMember.PrimarySMTPAddress),$($objMember.RecipientType)" 
+        Out-File -FilePath $OutputFile -InputObject "$($objDistributionGroup.DisplayName),$($objDistributionGroup.PrimarySMTPAddress),$($objMember.DisplayName),$($objMember.PrimarySMTPAddress),$($objMember.RecipientType),$($objDGMembers.Count)" -Encoding UTF8 -append  
+        write-host "`t$($objDistributionGroup.DisplayName),$($objDistributionGroup.PrimarySMTPAddress),$($objMember.DisplayName),$($objMember.PrimarySMTPAddress),$($objMember.RecipientType),$($objDGMembers.Count)" 
     }  
 }  
  

@@ -18,7 +18,8 @@ Connect-MsolService -Credential $cred
 # Get-MsolDomainFederationSettings
 # Get-MsolFederationProperty
 # Get-MSOLUser -DomainName YourDomainName.com
-# Get-MSOLUser -DomainName YourDomainName.com -all | Select UserPrincipalName, FirstName, LastName, DisplayName, Department, ProxyAddresses, ObjectId, ImmutableId | Format-Table
+# Get-MSOLUser -DomainName YourDomainName.com -All | Select UserPrincipalName, FirstName, LastName, DisplayName, Department, ProxyAddresses, ObjectId, ImmutableId | Format-Table
+# Get-MSOLUser -All | Select UserPrincipalName, FirstName, LastName, DisplayName, Department | Export-Csv -Path "C:\temp\o365_users.csv" -NoTypeInformation
 # Get-MsolUser –UserPrincipalName UserName@YourDomain.onmicrosoft.com | fl 
 # Set-MsolUser –UserPrincipalName UserName@YourDomain.onmicrosoft.com -PasswordNeverExpires $True
 # Get-MsolCompanyInformation | fl LastDirSyncTime

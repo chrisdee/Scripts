@@ -25,8 +25,14 @@ Invoke-Item $ADSyncClient
 
 ## Resource: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler
 
+## Get the Ad Sync Scheduler Settings
+Get-ADSyncScheduler
+
 Start-ADSyncSyncCycle -PolicyType Delta #Triggers the 'delta' Sync process
 #Start-ADSyncSyncCycle -PolicyType Initial #Triggers the 'full' Sync process
 
-## Get the Ad Sync Scheduler Settings
-Get-ADSyncScheduler
+## Set the AD Sync Scheduler Cycle
+
+Set-ADSyncScheduler -SyncCycleEnabled $True
+#Set-ADSyncScheduler -SyncCycleEnabled $False
+

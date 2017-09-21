@@ -9,7 +9,8 @@ Usage: Edit the variables listed below under 'Start Variables', and update the '
 Resources:
 
 https://octopus.com/docs/guides/azure-deployments/creating-an-azure-account/creating-an-azure-service-principal-account
-https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/09/01/how-to-create-an-azure-ad-application-in-powershell/
+https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/09/01/how-to-create-an-azure-ad-application-in-powershell
+https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal
 
 Requires: AzureRM PowerShell Modules
 

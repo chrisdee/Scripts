@@ -1,4 +1,4 @@
-## Active Directory: PowerShell Script to Perform Health Reports on Domain Controllers in an Active Directory Forest ##
+﻿ ## Active Directory: PowerShell Script to Perform Health Reports on Domain Controllers in an Active Directory Forest ##
 
  <#
 .SYNOPSIS
@@ -609,4 +609,4 @@ foreach ($domainController in $allDomainControllers){
       #Send email message
       Send-MailMessage @smtpsettings -Body $htmlreport -BodyAsHtml -Encoding ([System.Text.Encoding]::UTF8)
        
-    }
+    }  

@@ -4,6 +4,8 @@
 
 ## Usage: Edit the variables below and run the script
 
+## Note: If the query is not returning Group Names 'nested' within the Groups in the ' Get-ADGroupMember' command; remove the '-recursive' property
+
 ### Start Variables ###
 $distinguishedName = "OU=Groups,OU=YourOU,DC=YourDomain,DC=com"
 $displayName = "*A*"

@@ -71,7 +71,7 @@ $Subject     = "Office 365 Daily Check for $date"
 # Example COMPANYNAME:ENTERPRISEPACK
 # Use Get-MsolAccountSku to get a list of AccountSkuId's
 $TenantPrefix = "YourTenant" #Change this prefix property to match your tenant name
-$AccountSkuId = "$TenantPrefix:ENTERPRISEPACK"
+$AccountSkuId = "$TenantPrefix"+":ENTERPRISEPACK"
 
 #endregion
 
@@ -295,7 +295,7 @@ $ipChangeTables = "There are no reported IP or subnet changes in the past 24 hou
 $dirSyncStatus = Get-MsolCompanyInformation | select -ExpandProperty LastDirSyncTime
 
 # Get the total amount of mailboxes in Exchange Online.
-$totalO365Mailboxes = (get-mailbox).count
+$totalO365Mailboxes = (get-mailbox -ResultSize Unlimited).count
 
 # Get the remaining amount of licenses.
 $activeUnitsObj = Get-MsolAccountSku | ? { $_.AccountSkuId -eq $AccountSkuId } | select ActiveUnits

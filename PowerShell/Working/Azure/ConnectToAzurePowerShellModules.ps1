@@ -6,6 +6,7 @@ Import-Module Azure
 
 Add-AzureAccount
 
+#Get-AzureSubscription -ExtendedDetails
 #Get-AzureVM
 #Get-AzureWebsite
 

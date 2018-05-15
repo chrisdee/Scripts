@@ -20,3 +20,4 @@ Login-AzureRmAccount
 
 #Get-AzureRmSubscription
 #Get-AzureRmSubscription –SubscriptionName "Microsoft Azure Enterprise" | Select-AzureRmSubscription
+#Get-AzureRmSubscription –SubscriptionId "00000-0000-0000-000-0000" | Select-AzureRmSubscription

@@ -1098,11 +1098,7 @@ $Error.Clear()
 $ScriptStartTime = Get-Date
 
 # verify that the MSOnline module is installed and import into current powershell session
-#If (!([System.IO.File]::Exists(("{0}\modules\msonline\Microsoft.Online.Administration.Automation.PSModule.dll" -f $pshome))))
-#{
-#	WriteConsoleMessage -Message ("Please download and install the Microsoft Online Services Module.") -MessageType "Error"
-#	Exit
-#}
+
 $getModuleResults = Get-Module
 If (!$getModuleResults) {Import-Module MSOnline -ErrorAction SilentlyContinue}
 Else {$getModuleResults | ForEach-Object {If (!($_.Name -eq "MSOnline")){Import-Module MSOnline -ErrorAction SilentlyContinue}}}
